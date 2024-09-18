@@ -27382,6 +27382,7 @@ const MainView = ()=>{
                 Name: "Fantasy",
                 Description: "A genre often set in an imaginary universe without any locations, events, or people from the real world."
             },
+            Image: "https://m.media-amazon.com/images/M/MV5BZTcxNTYyZDMtYTlmOS00Zjg4LTlmMTYtY2MxMzEyNjgyNDcwXkEyXkFqcGc@._V1_.jpg",
             Director: {
                 Name: "Steven Spielberg",
                 Bio: "Steven Allan Spielberg is an American filmmaker and the most successful director in film history."
@@ -27399,14 +27400,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 30,
+        lineNumber: 32,
         columnNumber: 7
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is Empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 38,
+        lineNumber: 40,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27417,16 +27418,16 @@ const MainView = ()=>{
                 }
             }, movie._id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 44,
+                lineNumber: 46,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 42,
+        lineNumber: 44,
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "yD+LqcRphm13ALbgb7YRht6Mn/s=");
+_s(MainView, "g4ZbsTtaGIXI8QqhERzesApsxFU=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -27514,7 +27515,7 @@ const MovieView = ({ movie, onBackClick })=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: movie.image
+                    src: movie.Image
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 5,

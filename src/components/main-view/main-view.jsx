@@ -10,6 +10,8 @@ export const MainView = () => {
         Description:
           "A genre often set in an imaginary universe without any locations, events, or people from the real world.",
       },
+      Image:
+        "https://m.media-amazon.com/images/M/MV5BZTcxNTYyZDMtYTlmOS00Zjg4LTlmMTYtY2MxMzEyNjgyNDcwXkEyXkFqcGc@._V1_.jpg",
       Director: {
         Name: "Steven Spielberg",
         Bio: "Steven Allan Spielberg is an American filmmaker and the most successful director in film history.",
