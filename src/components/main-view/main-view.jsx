@@ -8,7 +8,7 @@ export const MainView = () => {
       Genre: {
         Name: "Fantasy",
         Description:
-          "A genre often set in an imaginary universt without any locations, events, or people from the real world.",
+          "A genre often set in an imaginary universe without any locations, events, or people from the real world.",
       },
       Director: {
         Name: "Steven Spielberg",
