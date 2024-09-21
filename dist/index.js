@@ -27240,19 +27240,32 @@ const MainView = ()=>{
     _s();
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
+            const moviesFromApi = data.docs.map((doc)=>{
+                return {
+                    id: doc._id,
+                    Title: doc.Title,
+                    Genre: doc.Genre.Name,
+                    Author: doc.Author.Name
+                };
+            });
+            setMovies(moviesFromApi);
+        });
+    });
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
         movie: selectedMovie,
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 12,
+        lineNumber: 28,
         columnNumber: 7
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is Empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 20,
+        lineNumber: 36,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27263,16 +27276,16 @@ const MainView = ()=>{
                 }
             }, movie._id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 26,
+                lineNumber: 42,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 24,
+        lineNumber: 40,
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "jzuc4/Y81KLA8pUTcmWNL/aPH2I=");
+_s(MainView, "PO+XgOji7E32nFJj3H5UPLPJ7w4=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
