@@ -11,7 +11,7 @@ export const MainView = () => {
     fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/movies")
       .then((response) => response.json())
       .then((data) => {
-        const moviesFromApi = data.docs.map((doc) => {
+        const moviesFromApi = data.map((doc) => {
           return {
             _id: doc._id,
             Title: doc.Title,
