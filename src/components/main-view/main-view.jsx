@@ -14,9 +14,13 @@ export const MainView = () => {
         const moviesFromApi = data.map((doc) => {
           return {
             _id: doc._id,
+            Image: doc.Image,
             Title: doc.Title,
-            Genre: doc.Genre.Name,
-            Director: doc.Director.Name,
+            MovieDescription: doc.Description,
+            GenreName: doc.Genre.Name,
+            DirectorName: doc.Director.Name,
+            DirectorBio: doc.Director.Bio,
+            LeadActor: doc.LeadActor,
           };
         });
         setMovies(moviesFromApi);
