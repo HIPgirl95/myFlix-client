@@ -27481,7 +27481,7 @@ MovieCard.propTypes = {
             Description: (0, _propTypesDefault.default).string
         }),
         Director: (0, _propTypesDefault.default).shape({
-            Name: (0, _propTypesDefault.default).string.isRequired,
+            Name: (0, _propTypesDefault.default).string,
             Bio: (0, _propTypesDefault.default).string
         }).isRequired
     }).isRequired,
