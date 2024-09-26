@@ -27411,6 +27411,7 @@ const MainView = ()=>{
         onLoggedIn: (user, token)=>{
             setUser(user);
             setToken(token);
+            localStorage.clear();
         }
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
@@ -27427,7 +27428,7 @@ const MainView = ()=>{
                 children: "Logout"
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 52,
+                lineNumber: 53,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
@@ -27435,7 +27436,7 @@ const MainView = ()=>{
                 onBackClick: ()=>setSelectedMovie(null)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 60,
+                lineNumber: 61,
                 columnNumber: 9
             }, undefined)
         ]
@@ -27444,7 +27445,7 @@ const MainView = ()=>{
         children: "The list is Empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 69,
+        lineNumber: 70,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27455,12 +27456,12 @@ const MainView = ()=>{
                 }
             }, movie._id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 75,
+                lineNumber: 76,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 73,
+        lineNumber: 74,
         columnNumber: 5
     }, undefined);
 };
