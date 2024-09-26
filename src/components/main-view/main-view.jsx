@@ -7,9 +7,15 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
-    fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/movies")
+    if (!token) {
+      return;
+    }
+    fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/movies", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
       .then((response) => response.json())
       .then((data) => {
         const moviesFromApi = data.map((doc) => {
@@ -26,10 +32,17 @@ export const MainView = () => {
         });
         setMovies(moviesFromApi);
       });
-  }, []);
+  }, [token]);
 
   if (!user) {
-    return <LoginView onLoggedIn={(user) => setUser(user)} />;
+    return (
+      <LoginView
+        onLoggedIn={(user, token) => {
+          setUser(user);
+          setToken(token);
+        }}
+      />
+    );
   }
 
   if (selectedMovie) {
@@ -38,6 +51,7 @@ export const MainView = () => {
         <button
           onClick={() => {
             setUser(null);
+            setToken(null);
           }}
         >
           Logout

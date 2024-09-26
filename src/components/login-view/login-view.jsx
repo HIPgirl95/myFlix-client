@@ -12,16 +12,25 @@ export const LoginView = ({ onLoggedIn }) => {
       secret: password,
     };
 
-    fetch("https://openlibrary.org/account/login.json", {
+    fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/login", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(data),
-    }).then((response) => {
-      if (response.ok) {
-        onLoggedIn(username);
-      } else {
-        alert("Login Failed");
-      }
-    });
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Login reponse: ", data);
+        if (data.user) {
+          onLoggedIn(data.user, data.token);
+        } else {
+          alert("No such user");
+        }
+      })
+      .catch((e) => {
+        alert("Something went wrong");
+      });
   };
   return (
     <form onSubmit={handleSubmit}>
