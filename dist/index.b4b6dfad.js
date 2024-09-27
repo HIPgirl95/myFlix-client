@@ -28510,8 +28510,8 @@ const LoginView = ({ onLoggedIn })=>{
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
-            access: username,
-            secret: password
+            Username: username,
+            Password: password
         };
         fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/login", {
             method: "POST",
