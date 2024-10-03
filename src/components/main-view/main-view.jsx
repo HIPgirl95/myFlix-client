@@ -5,6 +5,9 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import Nav from "react-bootstrap/Nav";
+import "./main-view.scss";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -57,15 +60,21 @@ export const MainView = () => {
         </>
       ) : selectedMovie ? (
         <>
-          <button
-            onClick={() => {
-              setUser(null);
-              setToken(null);
-              localStorage.clear();
-            }}
-          >
-            Logout
-          </button>
+          <Nav className="justify-content-end">
+            <Nav.Item>
+              <Button
+                id="logout"
+                variant="secondary"
+                onClick={() => {
+                  setUser(null);
+                  setToken(null);
+                  localStorage.clear();
+                }}
+              >
+                Logout
+              </Button>
+            </Nav.Item>
+          </Nav>
           <Col md={8}>
             <MovieView
               movie={selectedMovie}
