@@ -13210,6 +13210,14 @@ textarea.form-control-lg {
 }
 
 img {
-  width: 50%;
+  width: 100%;
+}
+
+h4 {
+  font-style: italic;
+}
+
+h3 {
+  text-decoration: underline;
 }
 /*# sourceMappingURL=index.2212206d.css.map */
