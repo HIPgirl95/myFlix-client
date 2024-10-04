@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import "./movie-view.scss";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 export const MovieView = ({ movie, onBackClick }) => {
   return (
@@ -34,7 +35,9 @@ export const MovieView = ({ movie, onBackClick }) => {
         </Col>
         <Row>
           <div>
-            <button onClick={onBackClick}>Back</button>
+            <Button variant="info" onClick={onBackClick}>
+              Back
+            </Button>
           </div>
         </Row>
       </Row>
