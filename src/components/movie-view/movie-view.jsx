@@ -1,10 +1,14 @@
 import PropTypes from "prop-types";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./movie-view.scss";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movie }) => {
+  const { movieId } = useParams();
+  const movie = movie.find((m) => m._id === movieId);
   return (
     <>
       <Row>
@@ -34,11 +38,9 @@ export const MovieView = ({ movie, onBackClick }) => {
           </div>
         </Col>
         <Row>
-          <div>
-            <Button variant="info" onClick={onBackClick}>
-              Back
-            </Button>
-          </div>
+          <Link to={`/`}>
+            <Button className="back-button">Back</Button>
+          </Link>
         </Row>
       </Row>
     </>
