@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import "./main-view.scss";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -42,8 +43,80 @@ export const MainView = () => {
   }, [token]);
 
   return (
-    <Row className="justify-content-md-center">
-      {!user ? (
+    <BrowserRouter>
+      <Row className="justify-content-md-center">
+        <Routes>
+          <Route
+            path="/signup"
+            element={
+              <>
+                {user ? (
+                  <Navigate to="/" />
+                ) : (
+                  <Col md={5}>
+                    <SignupView />
+                  </Col>
+                )}
+              </>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <>
+                {user ? (
+                  <Navigate to="/" />
+                ) : (
+                  <Col md={5}>
+                    <LoginView
+                      onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                      }}
+                    />
+                  </Col>
+                )}
+              </>
+            }
+          />
+          <Route
+            path="/movies/:movieID"
+            element={
+              <>
+                {!user ? (
+                  <Navigate to="/login" replace />
+                ) : movies.length === 0 ? (
+                  <Col>The list is Empty!</Col>
+                ) : (
+                  <Col md={8}>
+                    <MovieView movies={movies} />
+                  </Col>
+                )}
+              </>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <>
+                {!user ? (
+                  <Navigate to="/login" replace />
+                ) : movies.length === 0 ? (
+                  <Col>The list is Empty!</Col>
+                ) : (
+                  <>
+                    {movies.map((movie) => (
+                      <Col className="mb-4" key={movie.id} md={3}>
+                        <MovieCard movie={movie} />
+                      </Col>
+                    ))}
+                  </>
+                )}
+              </>
+            }
+          />
+        </Routes>
+        {/* {!user ? (
         <>
           <Col md={5}>
             <LoginView
@@ -97,7 +170,8 @@ export const MainView = () => {
             </Col>
           ))}
         </>
-      )}
-    </Row>
+      )} */}
+      </Row>
+    </BrowserRouter>
   );
 };
