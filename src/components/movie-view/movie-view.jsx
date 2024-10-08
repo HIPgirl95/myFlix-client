@@ -6,9 +6,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-export const MovieView = ({ movie }) => {
+export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
-  const movie = movie.find((m) => m._id === movieId);
+  const movie = movies.find((m) => m._id === movieId);
   return (
     <>
       <Row>
