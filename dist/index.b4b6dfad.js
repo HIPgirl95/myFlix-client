@@ -39446,10 +39446,10 @@ var _colDefault = parcelHelpers.interopDefault(_col);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _s = $RefreshSig$();
-const MovieView = ({ movies })=>{
+const MovieView = ({ movie })=>{
     _s();
     const { movieId } = (0, _reactRouterDom.useParams)();
-    const movie = movies.find((m)=>m._id === movieId);
+    const movies = movie.find((m)=>m._id === movieId);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
             children: [
