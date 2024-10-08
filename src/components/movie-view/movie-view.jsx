@@ -21,7 +21,7 @@ export const MovieView = ({ movie, onBackClick }) => {
           <div>
             <h3>Director: </h3>
             <h4>{movie.DirectorName}</h4>
-            <body>{movie.DirectorBio}</body>
+            <div>{movie.DirectorBio}</div>
           </div>
           <div>
             <h3>Starring: </h3>
@@ -30,7 +30,7 @@ export const MovieView = ({ movie, onBackClick }) => {
           <div>
             <h3>Genre: </h3>
             <h4>{movie.GenreName}</h4>
-            <body>{movie.GenreDescription}</body>
+            <div>{movie.GenreDescription}</div>
           </div>
         </Col>
         <Row>
