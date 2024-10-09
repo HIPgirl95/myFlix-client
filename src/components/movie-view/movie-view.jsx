@@ -5,16 +5,17 @@ import "./movie-view.scss";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { MovieCard } from "../movie-card/movie-card";
 
 export const MovieView = ({ movies }) => {
-  const { movieId } = useParams();
-  const movie = movies.find((m) => m._id === movieId);
+  const { _id } = useParams();
+  const movie = movies.find((m) => m._id === _id);
   return (
     <>
       <Row>
         <Col>
           <div>
-            <img src={movies.Image} />
+            <img className="w-100" src={movies.Image} />
           </div>
         </Col>
         <Col>

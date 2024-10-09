@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 import "./movie-card.scss";
-import { Link, link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const MovieCard = ({ movie }) => {
   return (
@@ -10,7 +10,7 @@ export const MovieCard = ({ movie }) => {
       <Card.Body>
         <Card.Title>{movie.Title}</Card.Title>
         <Card.Text>{movie.DirectorName}</Card.Text>
-        <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+        <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
           <Button variant="link">Open</Button>
         </Link>
       </Card.Body>
@@ -20,6 +20,7 @@ export const MovieCard = ({ movie }) => {
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
+    _id: PropTypes.string,
     Title: PropTypes.string.isRequired,
     Image: PropTypes.string.isRequired,
     Description: PropTypes.string,
