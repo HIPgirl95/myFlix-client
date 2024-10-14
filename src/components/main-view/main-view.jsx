@@ -26,22 +26,22 @@ export const MainView = () => {
     localStorage.clear();
   };
 
-  useEffect(() => {
-    if (!token) return;
-    fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const usersFromApi = data.map((doc) => {
-          return {
-            _id: doc._id,
-            Username: doc.Username,
-          };
-        });
-        setUser(usersFromApi);
-      });
-  }, [token]);
+  // useEffect(() => {
+  //   if (!token) return;
+  //   fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users", {
+  //     headers: { Authorization: `Bearer ${token}` },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       const userFromApi = data.map((doc) => {
+  //         return {
+  //           _id: doc._id,
+  //           Username: doc.Username,
+  //         };
+  //       });
+  //       setUser(userFromApi);
+  //     });
+  // }, [token]);
 
   useEffect(() => {
     if (!token) return;
@@ -89,6 +89,7 @@ export const MainView = () => {
                           setToken(token);
                         }}
                       />
+                      <h3>Or Sign up!</h3>
                       <SignupView />
                     </Col>
                   )}
@@ -105,40 +106,6 @@ export const MainView = () => {
         <NavigationBar user={user} onLoggedOut={onLoggedOut} />
         <Row className="justify-content-md-center">
           <Routes>
-            {/* <Route
-              path="/signup"
-              element={
-                <>
-                  {user ? (
-                    <Navigate to="/" />
-                  ) : (
-                    <Col md={5}>
-                      <SignupView />
-                    </Col>
-                  )}
-                </>
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                <>
-                  {user ? (
-                    <Navigate to="/" />
-                  ) : (
-                    <Col md={5}>
-                      <h3>Log in</h3>
-                      <LoginView
-                        onLoggedIn={(user, token) => {
-                          setUser(user);
-                          setToken(token);
-                        }}
-                      />
-                    </Col>
-                  )}
-                </>
-              }
-            /> */}
             <Route
               path="/movies/:movie_id"
               element={
@@ -182,7 +149,9 @@ export const MainView = () => {
                   {!user ? (
                     <Navigate to="/login" replace />
                   ) : (
-                    <ProfileView user={user} />
+                    <Col md={8}>
+                      <ProfileView />
+                    </Col>
                   )}
                 </>
               }
