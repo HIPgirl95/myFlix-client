@@ -39,6 +39,7 @@ export const MainView = () => {
             Title: doc.Title,
             MovieDescription: doc.Description,
             GenreName: doc.Genre.Name,
+            GenreDescription: doc.Genre.Description,
             DirectorName: doc.Director.Name,
             DirectorBio: doc.Director.Bio,
             LeadActor: doc.LeadActor,

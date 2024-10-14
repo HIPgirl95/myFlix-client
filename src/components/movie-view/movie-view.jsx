@@ -8,34 +8,34 @@ import Button from "react-bootstrap/Button";
 import { MovieCard } from "../movie-card/movie-card";
 
 export const MovieView = ({ movies }) => {
-  const { _id } = useParams();
-  const movie = movies.find((m) => m._id === _id);
+  const { movie_id } = useParams();
+  const movie = movies.find((m) => m._id === movie_id);
   return (
     <>
       <Row>
         <Col>
           <div>
-            <img className="w-100" src={movies.Image} />
+            <img className="w-100" src={movie.Image} />
           </div>
         </Col>
         <Col>
           <div>
-            <h1>{movies.Title}</h1>
-            <div>{movies.Description}</div>
+            <h1>{movie.Title}</h1>
+            <div>{movie.MovieDescription}</div>
           </div>
           <div>
             <h3>Director: </h3>
-            <h4>{movies.DirectorName}</h4>
-            <div>{movies.DirectorBio}</div>
+            <h4>{movie.DirectorName}</h4>
+            <div>{movie.DirectorBio}</div>
           </div>
           <div>
             <h3>Starring: </h3>
-            <h4>{movies.LeadActor}</h4>
+            <h4>{movie.LeadActor}</h4>
           </div>
           <div>
             <h3>Genre: </h3>
-            <h4>{movies.GenreName}</h4>
-            <div>{movies.GenreDescription}</div>
+            <h4>{movie.GenreName}</h4>
+            <div>{movie.GenreDescription}</div>
           </div>
         </Col>
         <Row>
