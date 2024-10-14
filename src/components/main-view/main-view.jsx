@@ -4,6 +4,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { ProfileView } from "../profile-view/profile-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -24,6 +25,23 @@ export const MainView = () => {
     setToken(null);
     localStorage.clear();
   };
+
+  useEffect(() => {
+    if (!token) return;
+    fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const usersFromApi = data.map((doc) => {
+          return {
+            _id: doc._id,
+            Username: doc.Username,
+          };
+        });
+        setUser(usersFromApi);
+      });
+  }, [token]);
 
   useEffect(() => {
     if (!token) return;
@@ -153,6 +171,18 @@ export const MainView = () => {
                         </Col>
                       ))}
                     </>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path="/users/:user_id"
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to="/login" replace />
+                  ) : (
+                    <ProfileView user={user} />
                   )}
                 </>
               }
