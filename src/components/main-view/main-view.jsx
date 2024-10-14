@@ -124,61 +124,6 @@ export const MainView = () => {
             }
           />
         </Routes>
-        {/* {!user ? (
-        <>
-          <Col md={5}>
-            <LoginView
-              onLoggedIn={(user, token) => {
-                setUser(user);
-                setToken(token);
-              }}
-            />
-          </Col>
-          or
-          <Col md={5}>
-            <SignupView />
-          </Col>
-        </>
-      ) : selectedMovie ? (
-        <>
-          <Nav className="justify-content-end">
-            <Nav.Item>
-              <Button
-                id="logout"
-                variant="secondary"
-                onClick={() => {
-                  setUser(null);
-                  setToken(null);
-                  localStorage.clear();
-                }}
-              >
-                Logout
-              </Button>
-            </Nav.Item>
-          </Nav>
-          <Col md={8}>
-            <MovieView
-              movie={selectedMovie}
-              onBackClick={() => setSelectedMovie(null)}
-            />
-          </Col>
-        </>
-      ) : movies.length === 0 ? (
-        <div>The list is Empty!</div>
-      ) : (
-        <>
-          {movies.map((movie) => (
-            <Col className="mb-5" key={movie._id} md={3}>
-              <MovieCard
-                movie={movie}
-                onMovieClick={(newSelectedMovie) => {
-                  setSelectedMovie(newSelectedMovie);
-                }}
-              />
-            </Col>
-          ))}
-        </>
-      )} */}
       </Row>
     </BrowserRouter>
   );
