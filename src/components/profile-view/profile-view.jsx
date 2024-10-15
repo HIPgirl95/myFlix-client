@@ -4,8 +4,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { deleteAccountButton } from "./delete-profile";
 
-export const ProfileView = ({ user }) => {
+export const ProfileView = ({ user, token, onLoggedOut }) => {
   return (
     <>
       <Row>
@@ -23,6 +24,13 @@ export const ProfileView = ({ user }) => {
             <Link to={`/`}>
               <Button className="back-button">Back</Button>
             </Link>
+          </Col>
+          <Col>
+            <deleteAccountButton
+              user_id={user._id}
+              token={token}
+              onLoggedOut={onLoggedOut}
+            />
           </Col>
         </Row>
       </Row>
