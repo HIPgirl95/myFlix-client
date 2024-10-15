@@ -11,14 +11,19 @@ export const ProfileView = ({ user }) => {
       <Row>
         <Col>
           <div>
-            <h1>{user.Username}</h1>
-            <div>{user.Email}</div>
+            <h2>Username: {user.Username}</h2>
+            <div>Email: {user.Email}</div>
           </div>
         </Col>
+        <Col>
+          <h3>Favorite Movies</h3>
+        </Col>
         <Row>
-          <Link to={`/`}>
-            <Button className="back-button">Back</Button>
-          </Link>
+          <Col>
+            <Link to={`/`}>
+              <Button className="back-button">Back</Button>
+            </Link>
+          </Col>
         </Row>
       </Row>
     </>
