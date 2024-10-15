@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 import { useParams } from "react-router";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
-export const ProfileView = ({ users }) => {
-  const { user_id } = useParams();
-  const user = users.find((u) => u._id === user_id);
+export const ProfileView = ({ user }) => {
   return (
     <>
       <Row>

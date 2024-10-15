@@ -27634,7 +27634,9 @@ const MainView = ()=>{
                                     columnNumber: 21
                                 }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                     md: 8,
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {}, void 0, false, {
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
+                                        user: user
+                                    }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
                                         lineNumber: 153,
                                         columnNumber: 23
@@ -42809,11 +42811,9 @@ var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
-var _s = $RefreshSig$();
-const ProfileView = ({ users })=>{
-    _s();
-    const { user_id } = (0, _reactRouter.useParams)();
-    const user = users.find((u)=>u._id === user_id);
+var _reactRouterDom = require("react-router-dom");
+var _reactBootstrap = require("react-bootstrap");
+const ProfileView = ({ user })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
             children: [
@@ -42837,9 +42837,9 @@ const ProfileView = ({ users })=>{
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Link, {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: `/`,
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Button, {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                             className: "back-button",
                             children: "Back"
                         }, void 0, false, {
@@ -42865,11 +42865,6 @@ const ProfileView = ({ users })=>{
         }, undefined)
     }, void 0, false);
 };
-_s(ProfileView, "UmQ1j6WSSQFamYSCsRoteHns8N8=", false, function() {
-    return [
-        (0, _reactRouter.useParams)
-    ];
-});
 _c = ProfileView;
 ProfileView.propTypes = {
     user: (0, _propTypesDefault.default).shape({
@@ -42885,6 +42880,6 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"i6cIo","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"enEzG","react-router":"dbWyW","react-bootstrap/Col":"2L2I6","react-bootstrap/Row":"cMC39","prop-types":"7wKI2"}]},["cg15n","eO74a","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"i6cIo","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"enEzG","react-router":"dbWyW","react-bootstrap/Col":"2L2I6","react-bootstrap/Row":"cMC39","prop-types":"7wKI2","react-router-dom":"9xmpe","react-bootstrap":"3AD9A"}]},["cg15n","eO74a","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
