@@ -12,7 +12,7 @@ export const ProfileView = ({ user }) => {
         <Col>
           <div>
             <h1>{user.Username}</h1>
-            {/* <div>{user.Email}</div> */}
+            <div>{user.Email}</div>
           </div>
         </Col>
         <Row>
