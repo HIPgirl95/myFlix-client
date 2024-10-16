@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { DeleteAccountButton } from "./delete-profile";
 import { UpdateInfo } from "./update-info";
+import { FavoriteMovies } from "./favorite-movies";
 
 export const ProfileView = ({ user, onLoggedOut }) => {
   return (
@@ -17,7 +18,7 @@ export const ProfileView = ({ user, onLoggedOut }) => {
         </div>
       </Col>
       <Col>
-        <h3>Favorite Movies</h3>
+        <FavoriteMovies />
       </Col>
       <Row>
         <Col>
