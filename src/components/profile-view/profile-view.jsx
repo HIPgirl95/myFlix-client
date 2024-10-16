@@ -6,12 +6,8 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { DeleteAccountButton } from "./delete-profile";
 import { UpdateInfo } from "./update-info";
-import { FavoriteMovies } from "./favorite-movies";
 
-export const ProfileView = ({ movies, user, onLoggedOut }) => {
-  const favoriteMovieList = movies.filter((m) =>
-    user.FavoriteMovies.includes(m._id)
-  );
+export const ProfileView = ({ user, onLoggedOut }) => {
   return (
     <Row>
       <Col>
@@ -21,7 +17,7 @@ export const ProfileView = ({ movies, user, onLoggedOut }) => {
         </div>
       </Col>
       <Col>
-        <FavoriteMovies favoriteMovieList={favoriteMovieList} />
+        <h3>Favorite Movies</h3>
       </Col>
       <Row>
         <Col>

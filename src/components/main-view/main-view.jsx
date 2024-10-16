@@ -153,11 +153,7 @@ export const MainView = () => {
                     <Navigate to="/" replace />
                   ) : (
                     <Col md={8}>
-                      <ProfileView
-                        movies={movies}
-                        user={user}
-                        onLoggedOut={onLoggedOut}
-                      />
+                      <ProfileView user={user} onLoggedOut={onLoggedOut} />
                     </Col>
                   )}
                 </>
