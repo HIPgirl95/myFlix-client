@@ -29,7 +29,7 @@ export const SignupView = () => {
       if (response.ok) {
         alert("Signup successful");
       } else {
-        alert("Signup failed");
+        alert(`Signup failed`);
       }
     });
   };

@@ -4,37 +4,34 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { deleteAccountButton } from "./delete-profile";
+import { DeleteAccountButton } from "./delete-profile";
 
-export const ProfileView = ({ user, token, onLoggedOut }) => {
+export const ProfileView = ({ user, onLoggedOut }) => {
   return (
-    <>
+    <Row>
+      <Col>
+        <div>
+          <h2>Username: {user.Username}</h2>
+          <div>Email: {user.Email}</div>
+        </div>
+      </Col>
+      <Col>
+        <h3>Favorite Movies</h3>
+      </Col>
       <Row>
         <Col>
-          <div>
-            <h2>Username: {user.Username}</h2>
-            <div>Email: {user.Email}</div>
-          </div>
+          <Link to={`/`}>
+            <Button className="back-button">Back</Button>
+          </Link>
         </Col>
         <Col>
-          <h3>Favorite Movies</h3>
+          <DeleteAccountButton
+            Username={user.Username}
+            onLoggedOut={onLoggedOut}
+          />
         </Col>
-        <Row>
-          <Col>
-            <Link to={`/`}>
-              <Button className="back-button">Back</Button>
-            </Link>
-          </Col>
-          <Col>
-            <deleteAccountButton
-              user_id={user._id}
-              token={token}
-              onLoggedOut={onLoggedOut}
-            />
-          </Col>
-        </Row>
       </Row>
-    </>
+    </Row>
   );
 };
 
