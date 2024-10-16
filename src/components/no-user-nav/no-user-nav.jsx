@@ -6,7 +6,7 @@ import { Nav, Container, Navbar, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
-export const NoUserNav = ({ user, onLoggedOut }) => {
+export const NoUserNav = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -16,10 +16,9 @@ export const NoUserNav = ({ user, onLoggedOut }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            {/* <Nav.Link as={Link} to={"/"}>
-              Profile
-            </Nav.Link> */}
-            <Nav.Link>Signup/Login</Nav.Link>
+            <Nav.Link as={Link} to={"/"}>
+              Signup/Login
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

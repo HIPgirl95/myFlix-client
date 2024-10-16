@@ -13,6 +13,7 @@ import Nav from "react-bootstrap/Nav";
 import "./main-view.scss";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NoUserNav } from "../no-user-nav/no-user-nav";
+import { useNavigate } from "react-router-dom";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -20,10 +21,12 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
+  const navigate = useNavigate();
   const onLoggedOut = () => {
     setUser(null);
     setToken(null);
     localStorage.clear();
+    navigate("/");
   };
 
   // useEffect(() => {
@@ -70,7 +73,7 @@ export const MainView = () => {
 
   if (!user)
     return (
-      <BrowserRouter>
+      <>
         <NoUserNav />
         <Row className="justify-content-md-center">
           <Routes>
@@ -79,7 +82,7 @@ export const MainView = () => {
               element={
                 <>
                   {user ? (
-                    <Navigate to="/login" />
+                    <Navigate to="/" />
                   ) : (
                     <Col md={5}>
                       <h3>Log in</h3>
@@ -98,11 +101,11 @@ export const MainView = () => {
             />{" "}
           </Routes>
         </Row>
-      </BrowserRouter>
+      </>
     );
   else
     return (
-      <BrowserRouter>
+      <>
         <NavigationBar user={user} onLoggedOut={onLoggedOut} />
         <Row className="justify-content-md-center">
           <Routes>
@@ -111,7 +114,7 @@ export const MainView = () => {
               element={
                 <>
                   {!user ? (
-                    <Navigate to="/login" replace />
+                    <Navigate to="/" replace />
                   ) : movies.length === 0 ? (
                     <Col>The list is Empty!</Col>
                   ) : (
@@ -127,7 +130,7 @@ export const MainView = () => {
               element={
                 <>
                   {!user ? (
-                    <Navigate to="/login" replace />
+                    <Navigate to="/" replace />
                   ) : movies.length === 0 ? (
                     <Col>The list is Empty!</Col>
                   ) : (
@@ -147,7 +150,7 @@ export const MainView = () => {
               element={
                 <>
                   {!user ? (
-                    <Navigate to="/login" replace />
+                    <Navigate to="/" replace />
                   ) : (
                     <Col md={8}>
                       <ProfileView user={user} onLoggedOut={onLoggedOut} />
@@ -158,6 +161,6 @@ export const MainView = () => {
             />
           </Routes>
         </Row>
-      </BrowserRouter>
+      </>
     );
 };
