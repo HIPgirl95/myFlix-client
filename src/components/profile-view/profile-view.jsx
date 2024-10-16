@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { DeleteAccountButton } from "./delete-profile";
+import { UpdateInfo } from "./update-info";
 
 export const ProfileView = ({ user, onLoggedOut }) => {
   return (
@@ -25,6 +26,7 @@ export const ProfileView = ({ user, onLoggedOut }) => {
           </Link>
         </Col>
         <Col>
+          <UpdateInfo Username={user.Username} />
           <DeleteAccountButton
             Username={user.Username}
             onLoggedOut={onLoggedOut}
