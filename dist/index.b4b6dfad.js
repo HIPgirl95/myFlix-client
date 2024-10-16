@@ -43259,7 +43259,8 @@ const ProfileView = ({ user, onLoggedOut })=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _updateInfo.UpdateInfo), {
-                                Username: user.Username
+                                Username: user.Username,
+                                onLoggedOut: onLoggedOut
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/profile-view.jsx",
                                 lineNumber: 29,
@@ -43444,7 +43445,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
-const UpdateInfo = ({ Username })=>{
+const UpdateInfo = ({ Username, onLoggedOut })=>{
     _s();
     const [showModal, setShowModal] = (0, _react.useState)(false);
     const [username, setUsername] = (0, _react.useState)("");
@@ -43452,6 +43453,7 @@ const UpdateInfo = ({ Username })=>{
     const [email, setEmail] = (0, _react.useState)("");
     const [birthday, setBirthday] = (0, _react.useState)("");
     const storedToken = localStorage.getItem("token");
+    const navigate = (0, _reactRouterDom.useNavigate);
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
@@ -43464,11 +43466,13 @@ const UpdateInfo = ({ Username })=>{
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${storedToken}`
             }
-        }).catch((err)=>{
-            console.error(err);
-        });
+        }).then((response)=>{
+            if (response.ok) alert("Account Updated. Returning to login page.");
+            else alert("Unable to Update Account");
+        }).then(onLoggedOut());
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
@@ -43478,7 +43482,7 @@ const UpdateInfo = ({ Username })=>{
                 children: "Update info"
             }, void 0, false, {
                 fileName: "src/components/profile-view/update-info.jsx",
-                lineNumber: 40,
+                lineNumber: 49,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Modal), {
@@ -43489,7 +43493,7 @@ const UpdateInfo = ({ Username })=>{
                         children: "Update Personal Information"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/update-info.jsx",
-                        lineNumber: 45,
+                        lineNumber: 54,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Modal).Body, {
@@ -43503,7 +43507,7 @@ const UpdateInfo = ({ Username })=>{
                                             children: "Username: "
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/update-info.jsx",
-                                            lineNumber: 49,
+                                            lineNumber: 58,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -43514,13 +43518,13 @@ const UpdateInfo = ({ Username })=>{
                                             minLength: 3
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/update-info.jsx",
-                                            lineNumber: 50,
+                                            lineNumber: 59,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/profile-view/update-info.jsx",
-                                    lineNumber: 48,
+                                    lineNumber: 57,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -43530,39 +43534,13 @@ const UpdateInfo = ({ Username })=>{
                                             children: "Password: "
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/update-info.jsx",
-                                            lineNumber: 59,
+                                            lineNumber: 68,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                                             type: "password",
                                             value: password,
                                             onChange: (e)=>setPassword(e.target.value),
-                                            required: true
-                                        }, void 0, false, {
-                                            fileName: "src/components/profile-view/update-info.jsx",
-                                            lineNumber: 60,
-                                            columnNumber: 15
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/profile-view/update-info.jsx",
-                                    lineNumber: 58,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                                    controlId: "formUpdateEmail",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                            children: "Email: "
-                                        }, void 0, false, {
-                                            fileName: "src/components/profile-view/update-info.jsx",
-                                            lineNumber: 68,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                                            type: "email",
-                                            value: email,
-                                            onChange: (e)=>setEmail(e.target.value),
                                             required: true
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/update-info.jsx",
@@ -43576,19 +43554,19 @@ const UpdateInfo = ({ Username })=>{
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                                    controlId: "formUpdateBirthday",
+                                    controlId: "formUpdateEmail",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                            children: "Birthday: "
+                                            children: "Email: "
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/update-info.jsx",
                                             lineNumber: 77,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                                            type: "date",
-                                            value: birthday,
-                                            onChange: (e)=>setBirthday(e.target.value),
+                                            type: "email",
+                                            value: email,
+                                            onChange: (e)=>setEmail(e.target.value),
                                             required: true
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/update-info.jsx",
@@ -43601,30 +43579,56 @@ const UpdateInfo = ({ Username })=>{
                                     lineNumber: 76,
                                     columnNumber: 13
                                 }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                    controlId: "formUpdateBirthday",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                            children: "Birthday: "
+                                        }, void 0, false, {
+                                            fileName: "src/components/profile-view/update-info.jsx",
+                                            lineNumber: 86,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                            type: "date",
+                                            value: birthday,
+                                            onChange: (e)=>setBirthday(e.target.value),
+                                            required: true
+                                        }, void 0, false, {
+                                            fileName: "src/components/profile-view/update-info.jsx",
+                                            lineNumber: 87,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/profile-view/update-info.jsx",
+                                    lineNumber: 85,
+                                    columnNumber: 13
+                                }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                                     variant: "primary",
                                     type: "submit",
                                     children: "Submit"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/update-info.jsx",
-                                    lineNumber: 85,
+                                    lineNumber: 94,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/update-info.jsx",
-                            lineNumber: 47,
+                            lineNumber: 56,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/update-info.jsx",
-                        lineNumber: 46,
+                        lineNumber: 55,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/update-info.jsx",
-                lineNumber: 44,
+                lineNumber: 53,
                 columnNumber: 7
             }, undefined)
         ]

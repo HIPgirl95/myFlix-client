@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-export const UpdateInfo = ({ Username }) => {
+export const UpdateInfo = ({ Username, onLoggedOut }) => {
   const [showModal, setShowModal] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
   const storedToken = localStorage.getItem("token");
+  const navigate = useNavigate;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,12 +30,19 @@ export const UpdateInfo = ({ Username }) => {
         method: "PUT",
         body: JSON.stringify(data),
         headers: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${storedToken}`,
         },
       }
-    ).catch((err) => {
-      console.error(err);
-    });
+    )
+      .then((response) => {
+        if (response.ok) {
+          alert("Account Updated. Returning to login page.");
+        } else {
+          alert("Unable to Update Account");
+        }
+      })
+      .then(onLoggedOut());
   };
   return (
     <>

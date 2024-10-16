@@ -26,7 +26,7 @@ export const ProfileView = ({ user, onLoggedOut }) => {
           </Link>
         </Col>
         <Col>
-          <UpdateInfo Username={user.Username} />
+          <UpdateInfo Username={user.Username} onLoggedOut={onLoggedOut} />
           <DeleteAccountButton
             Username={user.Username}
             onLoggedOut={onLoggedOut}
