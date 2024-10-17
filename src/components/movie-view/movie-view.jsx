@@ -5,7 +5,7 @@ import "./movie-view.scss";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { FavoriteMovies } from "../profile-view/favorite-movies";
+import { FavoriteMovieButton } from "../profile-view/favorite-movie-button";
 
 export const MovieView = ({ movies, Username, setUser }) => {
   const { movie_id } = useParams();
@@ -40,7 +40,7 @@ export const MovieView = ({ movies, Username, setUser }) => {
         </Col>
         <Row>
           <Col>
-            <FavoriteMovies
+            <FavoriteMovieButton
               Username={Username}
               movieId={movie_id}
               setUser={setUser}

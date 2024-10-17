@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 
-export const FavoriteMovies = ({ Username, movieId, setUser }) => {
+export const FavoriteMovieButton = ({ Username, movieId, setUser }) => {
   const storedToken = localStorage.getItem("token");
   const [isFavorite, setIsFavorite] = useState(false);
   const AddToFavs = () => {
@@ -58,7 +58,6 @@ export const FavoriteMovies = ({ Username, movieId, setUser }) => {
 
   return (
     <Col>
-      <h3>Favorite Movies!</h3>
       {isFavorite ? (
         <Button variant="outline-secondary" onClick={RemoveFromFavs}>
           Favorited!

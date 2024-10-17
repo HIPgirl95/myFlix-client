@@ -6,32 +6,40 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { DeleteAccountButton } from "./delete-profile";
 import { UpdateInfo } from "./update-info";
-import { FavoriteMovies } from "./favorite-movies";
+import { Card } from "react-bootstrap";
 
-export const ProfileView = ({ user, onLoggedOut }) => {
+export const ProfileView = ({ user, onLoggedOut, movie }) => {
   return (
     <Row>
       <Col>
-        <div>
-          <h2>Username: {user.Username}</h2>
-          <div>Email: {user.Email}</div>
-        </div>
+        <h2>Username: {user.Username}</h2>
+        <span>Email: {user.Email}</span>
       </Col>
       <Col>
-        <FavoriteMovies />
+        <Card>
+          <Card.Title>Favorite Movies</Card.Title>
+          {movie.map((movie) => (
+            <Card>
+              <Card.Body>
+                <Col>
+                  <Card.Text>{movie.Title}</Card.Text>
+                </Col>
+              </Card.Body>
+            </Card>
+          ))}
+        </Card>
+        <UpdateInfo Username={user.Username} onLoggedOut={onLoggedOut} />
+        <DeleteAccountButton
+          Username={user.Username}
+          onLoggedOut={onLoggedOut}
+        />
       </Col>
       <Row>
+        {" "}
         <Col>
           <Link to={`/`}>
             <Button className="back-button">Back</Button>
           </Link>
-        </Col>
-        <Col>
-          <UpdateInfo Username={user.Username} onLoggedOut={onLoggedOut} />
-          <DeleteAccountButton
-            Username={user.Username}
-            onLoggedOut={onLoggedOut}
-          />
         </Col>
       </Row>
     </Row>
