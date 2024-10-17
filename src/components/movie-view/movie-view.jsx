@@ -5,9 +5,9 @@ import "./movie-view.scss";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { FavMovieButton } from "../fav-movie-button/fav-movie-button";
+import { FavoriteMovies } from "../profile-view/favorite-movies";
 
-export const MovieView = ({ movies }) => {
+export const MovieView = ({ movies, Username, setUser }) => {
   const { movie_id } = useParams();
   const movie = movies.find((m) => m._id === movie_id);
   return (
@@ -40,7 +40,11 @@ export const MovieView = ({ movies }) => {
         </Col>
         <Row>
           <Col>
-            <FavMovieButton />
+            <FavoriteMovies
+              Username={Username}
+              movieId={movie_id}
+              setUser={setUser}
+            />
           </Col>
           <Link to={`/`}>
             <Button className="back-button">Back</Button>
