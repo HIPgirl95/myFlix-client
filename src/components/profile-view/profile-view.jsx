@@ -9,7 +9,6 @@ import { UpdateInfo } from "./update-info";
 import { Card } from "react-bootstrap";
 
 export const ProfileView = ({ user, onLoggedOut, movie }) => {
-  let favMovies = movie.filter((m) => user.FavMovies.includes(m._id));
   return (
     <Row>
       <Col>
@@ -20,14 +19,11 @@ export const ProfileView = ({ user, onLoggedOut, movie }) => {
       <Col>
         <Card>
           <Card.Title>Favorite Movies</Card.Title>
-          {favMovies.map((movie) => (
-            <Card key={movie._id}>
+          {movie.map((movie) => (
+            <Card>
               <Card.Body>
                 <Col>
-                  {/* <Card.Text>{movie.Title}</Card.Text> */}
-                  <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
-                    <Button variant="link">{movie.Title}</Button>
-                  </Link>
+                  <Card.Text>{movie.Title}</Card.Text>
                 </Col>
               </Card.Body>
             </Card>
