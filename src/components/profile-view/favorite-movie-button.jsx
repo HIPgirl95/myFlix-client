@@ -2,7 +2,13 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 
-export const FavoriteMovieButton = ({ Username, movieId, setUser }) => {
+export const FavoriteMovieButton = ({
+  Username,
+  movieId,
+  setUser,
+  user,
+  movie,
+}) => {
   const storedToken = localStorage.getItem("token");
   const [isFavorite, setIsFavorite] = useState(false);
   const AddToFavs = () => {
@@ -56,17 +62,33 @@ export const FavoriteMovieButton = ({ Username, movieId, setUser }) => {
       });
   };
 
-  return (
-    <Col>
-      {isFavorite ? (
-        <Button variant="outline-secondary" onClick={RemoveFromFavs}>
-          Favorited!
-        </Button>
-      ) : (
-        <Button variant="secondary" onClick={AddToFavs}>
-          Add to Favorites!
-        </Button>
-      )}
-    </Col>
-  );
+  let favMovie = movie.filter((m) => user.FavMovies.includes(m._id));
+
+  if ((movieId = favMovie._id)) {
+    return (
+      <Button variant="outline-danger" onClick={RemoveFromFavs}>
+        Remove from Favorites!
+      </Button>
+    );
+  } else {
+    return (
+      <Button variant="secondary" onClick={AddToFavs}>
+        Add to Favorites!
+      </Button>
+    );
+  }
+
+  // return (
+  //   <Col>
+  //     {favMovies ? (
+  //       <Button variant="outline-danger" onClick={RemoveFromFavs}>
+  //         Remove from Favorites!
+  //       </Button>
+  //     ) : (
+  //       <Button variant="secondary" onClick={AddToFavs}>
+  //         Add to Favorites!
+  //       </Button>
+  //     )}
+  //   </Col>
+  // );
 };
