@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { FavoriteMovieButton } from "../profile-view/favorite-movie-button";
 
-export const MovieView = ({ movies, Username, setUser }) => {
+export const MovieView = ({ movies, Username, setUser, user }) => {
   const { movie_id } = useParams();
   const movie = movies.find((m) => m._id === movie_id);
   return (
@@ -44,6 +44,7 @@ export const MovieView = ({ movies, Username, setUser }) => {
               Username={Username}
               movieId={movie_id}
               setUser={setUser}
+              movie={movies}
             />
           </Col>
           <Link to={`/`}>
