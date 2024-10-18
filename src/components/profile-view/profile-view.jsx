@@ -13,7 +13,8 @@ export const ProfileView = ({ user, onLoggedOut, movie }) => {
     <Row>
       <Col>
         <h2>Username: {user.Username}</h2>
-        <span>Email: {user.Email}</span>
+        <div>Email: {user.Email}</div>
+        <div>Birthday: {user.Birthday}</div>
       </Col>
       <Col>
         <Card>
