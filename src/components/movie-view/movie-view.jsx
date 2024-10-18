@@ -48,7 +48,7 @@ export const MovieView = ({ movies, Username, setUser, user }) => {
             />
           </Col>
           <Link to={`/`}>
-            <Button className="back-button">Back</Button>
+            <Button className="back-button">Home</Button>
           </Link>
         </Row>
       </Row>

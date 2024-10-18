@@ -42666,7 +42666,7 @@ const MovieView = ({ movies, Username, setUser, user })=>{
                             to: `/`,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                                 className: "back-button",
-                                children: "Back"
+                                children: "Home"
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
                                 lineNumber: 51,
@@ -43369,7 +43369,7 @@ const ProfileView = ({ user, onLoggedOut, movie })=>{
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                                 to: `/movies/${encodeURIComponent(movie._id)}`,
                                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                                                    variant: "link",
+                                                    variant: "outline-secondary",
                                                     children: movie.Title
                                                 }, void 0, false, {
                                                     fileName: "src/components/profile-view/profile-view.jsx",

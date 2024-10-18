@@ -26,7 +26,7 @@ export const ProfileView = ({ user, onLoggedOut, movie }) => {
                 <Col>
                   {/* <Card.Text>{movie.Title}</Card.Text> */}
                   <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
-                    <Button variant="link">{movie.Title}</Button>
+                    <Button variant="outline-secondary">{movie.Title}</Button>
                   </Link>
                 </Col>
               </Card.Body>
