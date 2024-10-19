@@ -7,8 +7,8 @@ export const FavoriteMovieButton = ({
   Username,
   movieId,
   setUser,
-  user,
   movie,
+  user,
 }) => {
   const storedToken = localStorage.getItem("token");
   const [isFavorite, setIsFavorite] = useState(false);

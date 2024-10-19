@@ -122,6 +122,7 @@ export const MainView = () => {
                       <MovieView
                         movies={movies}
                         Username={user.Username}
+                        user={user}
                         setUser={setUser}
                       />
                     </Col>
