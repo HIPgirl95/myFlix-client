@@ -1,5 +1,5 @@
 import { func } from "prop-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 
@@ -31,7 +31,7 @@ export const FavoriteMovieButton = ({
       .then((data) => {
         setUser(data);
         localStorage.setItem("user", JSON.stringify(data));
-        setIsFavorite(true);
+        // setIsFavorite(true);
       })
       .catch((err) => {
         console.error(err);
@@ -56,12 +56,22 @@ export const FavoriteMovieButton = ({
       .then((data) => {
         setUser(data);
         localStorage.setItem("user", JSON.stringify(data));
-        setIsFavorite(false);
+        // setIsFavorite(false);
       })
       .catch((err) => {
         console.error(err);
       });
   };
+
+  useEffect(() => {
+    if (!user) return;
+
+    if (user.FavMovies.includes(movieId)) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+  }, [user]);
 
   if (isFavorite) {
     return (

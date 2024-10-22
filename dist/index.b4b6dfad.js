@@ -42740,7 +42740,7 @@ const FavoriteMovieButton = ({ Username, movieId, setUser, movie, user })=>{
         }).then((data)=>{
             setUser(data);
             localStorage.setItem("user", JSON.stringify(data));
-            setIsFavorite(true);
+        // setIsFavorite(true);
         }).catch((err)=>{
             console.error(err);
         });
@@ -42757,18 +42757,25 @@ const FavoriteMovieButton = ({ Username, movieId, setUser, movie, user })=>{
         }).then((data)=>{
             setUser(data);
             localStorage.setItem("user", JSON.stringify(data));
-            setIsFavorite(false);
+        // setIsFavorite(false);
         }).catch((err)=>{
             console.error(err);
         });
     };
+    (0, _react.useEffect)(()=>{
+        if (!user) return;
+        if (user.FavMovies.includes(movieId)) setIsFavorite(true);
+        else setIsFavorite(false);
+    }, [
+        user
+    ]);
     if (isFavorite) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
         variant: "outline-danger",
         onClick: RemoveFromFavs,
         children: "Remove from Favorites!"
     }, void 0, false, {
         fileName: "src/components/profile-view/favorite-movie-button.jsx",
-        lineNumber: 68,
+        lineNumber: 78,
         columnNumber: 7
     }, undefined);
     else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -42777,7 +42784,7 @@ const FavoriteMovieButton = ({ Username, movieId, setUser, movie, user })=>{
         children: "Add to Favorites!"
     }, void 0, false, {
         fileName: "src/components/profile-view/favorite-movie-button.jsx",
-        lineNumber: 74,
+        lineNumber: 84,
         columnNumber: 7
     }, undefined);
 }; // return (
@@ -42793,7 +42800,7 @@ const FavoriteMovieButton = ({ Username, movieId, setUser, movie, user })=>{
  //     )}
  //   </Col>
  // );
-_s(FavoriteMovieButton, "k950Z1JpPS3WYtE75BCawi6VGEM=");
+_s(FavoriteMovieButton, "lh6fxD9+vLbuebOO0x4Y5WwBqk4=");
 _c = FavoriteMovieButton;
 var _c;
 $RefreshReg$(_c, "FavoriteMovieButton");
@@ -42803,7 +42810,7 @@ $RefreshReg$(_c, "FavoriteMovieButton");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-bootstrap/Col":"2L2I6","@parcel/transformer-js/src/esmodule-helpers.js":"i6cIo","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"enEzG","prop-types":"7wKI2"}],"9YtA0":[function(require,module,exports) {
+},{"react":"21dqq","react-bootstrap":"3AD9A","react-bootstrap/Col":"2L2I6","@parcel/transformer-js/src/esmodule-helpers.js":"i6cIo","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"enEzG","prop-types":"7wKI2","react/jsx-dev-runtime":"iTorj"}],"9YtA0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
