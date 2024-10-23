@@ -1,22 +1,27 @@
 import PropTypes from "prop-types";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./movie-view.scss";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { FavoriteMovieButton } from "../profile-view/favorite-movie-button";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movies, Username, user, setUser }) => {
+  const { movie_id } = useParams();
+  const movie = movies.find((m) => m._id === movie_id);
   return (
     <>
       <Row>
         <Col>
           <div>
-            <img src={movie.Image} />
+            <img className="w-100" src={movie.Image} />
           </div>
         </Col>
         <Col>
           <div>
             <h1>{movie.Title}</h1>
-            <div>{movie.Description}</div>
+            <div>{movie.MovieDescription}</div>
           </div>
           <div>
             <h3>Director: </h3>
@@ -34,11 +39,18 @@ export const MovieView = ({ movie, onBackClick }) => {
           </div>
         </Col>
         <Row>
-          <div>
-            <Button variant="info" onClick={onBackClick}>
-              Back
-            </Button>
-          </div>
+          <Col>
+            <FavoriteMovieButton
+              Username={Username}
+              movieId={movie_id}
+              setUser={setUser}
+              movie={movies}
+              user={user}
+            />
+          </Col>
+          <Link to={`/`}>
+            <Button className="back-button">Home</Button>
+          </Link>
         </Row>
       </Row>
     </>

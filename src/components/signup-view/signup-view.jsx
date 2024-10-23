@@ -29,14 +29,14 @@ export const SignupView = () => {
       if (response.ok) {
         alert("Signup successful");
       } else {
-        alert("Signup failed");
+        alert(`Signup failed`);
       }
     });
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="formUsername">
+      <Form.Group controlId="formSignupUsername">
         <Form.Label>Username: </Form.Label>
         <Form.Control
           type="text"
@@ -46,7 +46,7 @@ export const SignupView = () => {
           minLength={3}
         />
       </Form.Group>
-      <Form.Group controlId="formPassword">
+      <Form.Group controlId="formSignupPassword">
         <Form.Label>Password: </Form.Label>
         <Form.Control
           type="password"
