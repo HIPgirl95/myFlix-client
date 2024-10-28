@@ -43167,6 +43167,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
                                 as: (0, _reactRouterDom.Link),
                                 to: "/",
+                                className: "navigate-link",
                                 children: "Movies"
                             }, void 0, false, {
                                 fileName: "src/components/navigation-bar/navigation-bar.jsx",
@@ -43176,6 +43177,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
                                 as: (0, _reactRouterDom.Link),
                                 to: `/users/${encodeURIComponent(user._id)}`,
+                                className: "navigate-link",
                                 children: "Profile"
                             }, void 0, false, {
                                 fileName: "src/components/navigation-bar/navigation-bar.jsx",
@@ -43186,10 +43188,11 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                 as: (0, _reactBootstrap.Button),
                                 to: "/",
                                 onClick: onLoggedOut,
+                                className: "logout",
                                 children: "Logout"
                             }, void 0, false, {
                                 fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                lineNumber: 25,
+                                lineNumber: 29,
                                 columnNumber: 13
                             }, undefined)
                         ]

@@ -12,9 +12,17 @@ $dark-accent: #84a8d6;
 
 .navbar {
   background-color: $dark-color;
+}
+
+.logo.navbar-brand {
+  padding-left: 20px;
   color: $light-color;
 }
 
-.logo {
-  padding-left: 20px;
+.logout.nav-link.btn.btn-primary:hover {
+  background-color: $base-color;
+}
+
+.navigate-link.nav-link:hover {
+  color: $light-color;
 }
