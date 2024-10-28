@@ -8,9 +8,9 @@ import { Button } from "react-bootstrap";
 
 export const NoUserNav = () => {
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand as={Link} to="/">
+    <Navbar expand="lg">
+      <Container className="navbar">
+        <Navbar.Brand as={Link} to="/" className="logo">
           Movies App
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

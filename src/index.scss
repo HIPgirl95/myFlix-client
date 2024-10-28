@@ -7,16 +7,14 @@ $light-accent: #b6bb98;
 $dark-accent: #84a8d6;
 
 .my-flix {
+  background-color: $base-color;
+}
+
+.navbar {
   background-color: $dark-color;
+  color: $light-color;
 }
 
-#main-view-div {
-  padding: 3px;
-  margin: 3px;
-}
-
-#main-view-title:hover {
-  cursor: pointer;
-  border: 3px solid black;
-  padding: 5px;
+.logo {
+  padding-left: 20px;
 }
