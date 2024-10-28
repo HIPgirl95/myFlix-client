@@ -1,6 +1,6 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-$base-color: #a0d7ef;
+$base-color: #ceebf8;
 $light-color: #fbfaf9;
 $dark-color: #2f9ed1;
 $light-accent: #b6bb98;
@@ -14,7 +14,7 @@ $darker-color: #1051a5;
 }
 
 #movie-card {
-  background-color: $light-color;
+  background-color: $base-color;
 }
 
 #open-movie {
