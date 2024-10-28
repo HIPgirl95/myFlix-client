@@ -1,5 +1,22 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+$base-color: #a0d7ef;
+$light-color: #fbfaf9;
+$dark-color: #2f9ed1;
+$light-accent: #b6bb98;
+$dark-accent: #84a8d6;
+$darker-color: #1051a5;
+
 .movieCardImg {
   max-width: 50%;
-  padding-top: 5px;
+  padding-top: 8px;
   align-self: center;
+}
+
+#movie-card {
+  background-color: $light-color;
+}
+
+#open-movie {
+  color: $darker-color;
 }
