@@ -6,13 +6,13 @@ import { BrowserRouter } from "react-router-dom";
 
 const MyFlixApplication = () => {
   return (
-    <>
+    <div className="my-flix">
       <BrowserRouter>
         <Container>
           <MainView />
         </Container>
       </BrowserRouter>
-    </>
+    </div>
   );
 };
 

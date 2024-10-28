@@ -2960,7 +2960,8 @@ var _container = require("react-bootstrap/Container");
 var _containerDefault = parcelHelpers.interopDefault(_container);
 var _reactRouterDom = require("react-router-dom");
 const MyFlixApplication = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "my-flix",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
@@ -2978,7 +2979,11 @@ const MyFlixApplication = ()=>{
             lineNumber: 10,
             columnNumber: 7
         }, undefined)
-    }, void 0, false);
+    }, void 0, false, {
+        fileName: "src/index.jsx",
+        lineNumber: 9,
+        columnNumber: 5
+    }, undefined);
 };
 _c = MyFlixApplication;
 const container = document.querySelector("#root");
