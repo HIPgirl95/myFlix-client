@@ -6258,6 +6258,7 @@
 
 .navbar {
   background-color: #2f9ed1;
+  margin-bottom: 10px;
 }
 
 .logo.navbar-brand {
@@ -12504,6 +12505,12 @@
 
 #open-movie {
   color: #1051a5;
+}
+
+#title {
+  font-variant: small-caps;
+  height: 75px;
+  font-size: larger;
 }
 
 img {

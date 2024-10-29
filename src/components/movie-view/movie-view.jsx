@@ -13,12 +13,19 @@ export const MovieView = ({ movies, Username, user, setUser }) => {
   return (
     <>
       <Row>
-        <Col>
+        <Col lg={6} sm={12}>
           <div>
             <img className="w-100" src={movie.Image} />
           </div>
+          <FavoriteMovieButton
+            Username={Username}
+            movieId={movie_id}
+            setUser={setUser}
+            movie={movies}
+            user={user}
+          />
         </Col>
-        <Col>
+        <Col lg={6} sm={12}>
           <div>
             <h1>{movie.Title}</h1>
             <div>{movie.MovieDescription}</div>
@@ -39,15 +46,6 @@ export const MovieView = ({ movies, Username, user, setUser }) => {
           </div>
         </Col>
         <Row>
-          <Col>
-            <FavoriteMovieButton
-              Username={Username}
-              movieId={movie_id}
-              setUser={setUser}
-              movie={movies}
-              user={user}
-            />
-          </Col>
           <Link to={`/`}>
             <Button className="back-button">Home</Button>
           </Link>
