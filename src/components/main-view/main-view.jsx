@@ -14,6 +14,7 @@ import "./main-view.scss";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NoUserNav } from "../no-user-nav/no-user-nav";
 import { useNavigate } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -107,69 +108,71 @@ export const MainView = () => {
     return (
       <>
         <NavigationBar user={user} onLoggedOut={onLoggedOut} />
-        <Row className="justify-content-md-center">
-          <Routes>
-            <Route
-              path="/movies/:movie_id"
-              element={
-                <>
-                  {!user ? (
-                    <Navigate to="/" replace />
-                  ) : movies.length === 0 ? (
-                    <Col>The list is Empty!</Col>
-                  ) : (
-                    <Col md={8}>
-                      <MovieView
-                        movies={movies}
-                        Username={user.Username}
-                        user={user}
-                        setUser={setUser}
-                      />
-                    </Col>
-                  )}
-                </>
-              }
-            />
-            <Route
-              path="/"
-              element={
-                <>
-                  {!user ? (
-                    <Navigate to="/" replace />
-                  ) : movies.length === 0 ? (
-                    <Col>The list is Empty!</Col>
-                  ) : (
-                    <>
-                      {movies.map((movie) => (
-                        <Col className="mb-4" key={movie._id} md={3}>
-                          <MovieCard movie={movie} />
-                        </Col>
-                      ))}
-                    </>
-                  )}
-                </>
-              }
-            />
-            <Route
-              path="/users/:user_id"
-              element={
-                <>
-                  {!user ? (
-                    <Navigate to="/" replace />
-                  ) : (
-                    <Col md={8}>
-                      <ProfileView
-                        user={user}
-                        onLoggedOut={onLoggedOut}
-                        movie={movies}
-                      />
-                    </Col>
-                  )}
-                </>
-              }
-            />
-          </Routes>
-        </Row>
+        <Container>
+          <Row className="justify-content-md-center">
+            <Routes>
+              <Route
+                path="/movies/:movie_id"
+                element={
+                  <>
+                    {!user ? (
+                      <Navigate to="/" replace />
+                    ) : movies.length === 0 ? (
+                      <Col>The list is Empty!</Col>
+                    ) : (
+                      <Col md={8}>
+                        <MovieView
+                          movies={movies}
+                          Username={user.Username}
+                          user={user}
+                          setUser={setUser}
+                        />
+                      </Col>
+                    )}
+                  </>
+                }
+              />
+              <Route
+                path="/"
+                element={
+                  <>
+                    {!user ? (
+                      <Navigate to="/" replace />
+                    ) : movies.length === 0 ? (
+                      <Col>The list is Empty!</Col>
+                    ) : (
+                      <>
+                        {movies.map((movie) => (
+                          <Col className="mb-4" key={movie._id} md={3}>
+                            <MovieCard movie={movie} />
+                          </Col>
+                        ))}
+                      </>
+                    )}
+                  </>
+                }
+              />
+              <Route
+                path="/users/:user_id"
+                element={
+                  <>
+                    {!user ? (
+                      <Navigate to="/" replace />
+                    ) : (
+                      <Col md={8}>
+                        <ProfileView
+                          user={user}
+                          onLoggedOut={onLoggedOut}
+                          movie={movies}
+                        />
+                      </Col>
+                    )}
+                  </>
+                }
+              />
+            </Routes>
+          </Row>
+        </Container>
       </>
     );
 };

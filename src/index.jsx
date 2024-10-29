@@ -8,9 +8,7 @@ const MyFlixApplication = () => {
   return (
     <div className="my-flix">
       <BrowserRouter>
-        <Container>
-          <MainView />
-        </Container>
+        <MainView />
       </BrowserRouter>
     </div>
   );
