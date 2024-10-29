@@ -13,7 +13,7 @@ export const ProfileView = ({ user, onLoggedOut, movie }) => {
   let favMovies = movie.filter((m) => user.FavMovies.includes(m._id));
   return (
     <Row>
-      <Col>
+      <Col sm={12} lg={4}>
         <h2>{user.Username}</h2>
         <div>Email: {user.Email}</div>
         <div>Birthday: {user.Birthday}</div>
