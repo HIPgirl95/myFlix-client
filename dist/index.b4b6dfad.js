@@ -42777,7 +42777,7 @@ const FavoriteMovieButton = ({ Username, movieId, setUser, movie, user })=>{
         user
     ]);
     if (isFavorite) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-        variant: "outline-danger",
+        variant: "outline-dark",
         onClick: RemoveFromFavs,
         children: "Remove from Favorites!"
     }, void 0, false, {
