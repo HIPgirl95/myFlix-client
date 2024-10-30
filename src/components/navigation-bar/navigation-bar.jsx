@@ -5,9 +5,8 @@ import "../../index.scss";
 import { Nav, Container, Navbar, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { searchBar } from "./search";
 
-export const NavigationBar = ({ user, onLoggedOut, movie }) => {
+export const NavigationBar = ({ user, onLoggedOut }) => {
   return (
     <Navbar expand="lg">
       <Container className="navbar">
@@ -27,7 +26,6 @@ export const NavigationBar = ({ user, onLoggedOut, movie }) => {
             >
               Profile
             </Nav.Link>
-            <searchBar movie={movie} />
             <Nav.Link
               as={Button}
               to="/"
