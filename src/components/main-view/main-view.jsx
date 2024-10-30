@@ -15,13 +15,16 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NoUserNav } from "../no-user-nav/no-user-nav";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { setMovies } from "../../redux/reducers/movies";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
-  const [movies, setMovies] = useState([]);
+  const movies = useSelector((state) => state.movies.list);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const onLoggedOut = () => {
     setUser(null);
@@ -68,7 +71,7 @@ export const MainView = () => {
             LeadActor: doc.LeadActor,
           };
         });
-        setMovies(moviesFromApi);
+        dispatch(setMovies(moviesFromApi));
       });
   }, [token]);
 
@@ -117,8 +120,6 @@ export const MainView = () => {
                   <>
                     {!user ? (
                       <Navigate to="/" replace />
-                    ) : movies.length === 0 ? (
-                      <Col>The list is Empty!</Col>
                     ) : (
                       <Col md={8}>
                         <MovieView
@@ -138,8 +139,6 @@ export const MainView = () => {
                   <>
                     {!user ? (
                       <Navigate to="/" replace />
-                    ) : movies.length === 0 ? (
-                      <Col>The list is Empty!</Col>
                     ) : (
                       <>
                         {movies.map((movie) => (
