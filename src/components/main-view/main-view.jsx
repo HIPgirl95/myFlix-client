@@ -107,7 +107,7 @@ export const MainView = () => {
   else
     return (
       <>
-        <NavigationBar user={user} onLoggedOut={onLoggedOut} />
+        <NavigationBar user={user} onLoggedOut={onLoggedOut} movie={movies} />
         <Container>
           <Row className="justify-content-md-center">
             <Routes>
