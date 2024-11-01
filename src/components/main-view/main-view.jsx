@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { setMovies } from "../../redux/reducers/movies";
+import { MoviesList } from "../movies-list/movies-list";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -140,13 +141,14 @@ export const MainView = () => {
                     {!user ? (
                       <Navigate to="/" replace />
                     ) : (
-                      <>
-                        {movies.map((movie) => (
-                          <Col className="mb-4" key={movie._id} lg={3} sm={12}>
-                            <MovieCard movie={movie} />
-                          </Col>
-                        ))}
-                      </>
+                      <MoviesList />
+                      // <>
+                      //   {movies.map((movie) => (
+                      //     <Col className="mb-4" key={movie._id} lg={3} sm={12}>
+                      //       <MovieCard movie={movie} />
+                      //     </Col>
+                      //   ))}
+                      // </>
                     )}
                   </>
                 }
