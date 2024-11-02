@@ -27425,7 +27425,7 @@ const MainView = ()=>{
     const storedToken = localStorage.getItem("token");
     const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
-    const movies = (0, _reactRedux.useSelector)((state)=>state.movies);
+    const movies = (0, _reactRedux.useSelector)((state)=>state.movies.list);
     const dispatch = (0, _reactRedux.useDispatch)();
     const navigate = (0, _reactRouterDom.useNavigate)();
     const onLoggedOut = ()=>{
@@ -44947,19 +44947,24 @@ $RefreshReg$(_c, "UpdateInfo");
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "setMovies", ()=>setMovies);
+parcelHelpers.export(exports, "setFilter", ()=>setFilter);
 var _toolkit = require("@reduxjs/toolkit");
 const moviesSlice = (0, _toolkit.createSlice)({
     name: "movies",
     initialState: {
-        list: []
+        list: [],
+        filter: ""
     },
     reducers: {
         setMovies: (state, action)=>{
             state.list = action.payload;
+        },
+        setFilter: (state, action)=>{
+            state.filter = action.payload;
         }
     }
 });
-const { setMovies } = moviesSlice.actions;
+const { setMovies, setFilter } = moviesSlice.actions;
 exports.default = moviesSlice.reducer;
 
 },{"@reduxjs/toolkit":"fuua8","@parcel/transformer-js/src/esmodule-helpers.js":"i6cIo"}],"fuua8":[function(require,module,exports) {
@@ -48947,37 +48952,69 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRedux = require("react-redux");
 var _reactBootstrap = require("react-bootstrap");
 var _movieCard = require("../movie-card/movie-card");
+var _moviesFilter = require("../movies-filter/movies-filter");
+var _movies = require("../../redux/reducers/movies");
 var _s = $RefreshSig$();
 const MoviesList = ()=>{
     _s();
     const movies = (0, _reactRedux.useSelector)((state)=>state.movies.list);
+    const dispatch = (0, _reactRedux.useDispatch)();
+    const filter = (0, _reactRedux.useSelector)((state)=>state.movies.filter).trim().toLowerCase();
+    const filteredMovies = movies.filter((movie)=>movie.Title.toLowerCase().includes(filter));
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-            children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                    className: "mb-4",
-                    lg: 3,
-                    sm: 12,
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                        movie: movie
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                    md: 4,
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                        type: "text",
+                        placeholder: "Search Movies",
+                        value: filter,
+                        onChange: (e)=>dispatch((0, _movies.setFilter)(e.target.value))
                     }, void 0, false, {
                         fileName: "src/components/movies-list/movies-list.jsx",
-                        lineNumber: 14,
-                        columnNumber: 13
+                        lineNumber: 25,
+                        columnNumber: 11
                     }, undefined)
-                }, movie._id, false, {
+                }, void 0, false, {
                     fileName: "src/components/movies-list/movies-list.jsx",
-                    lineNumber: 13,
-                    columnNumber: 11
-                }, undefined))
-        }, void 0, false, {
-            fileName: "src/components/movies-list/movies-list.jsx",
-            lineNumber: 11,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false);
+                    lineNumber: 24,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/movies-list/movies-list.jsx",
+                lineNumber: 23,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                children: filteredMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                        className: "mb-4",
+                        lg: 3,
+                        sm: 12,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                            movie: movie
+                        }, void 0, false, {
+                            fileName: "src/components/movies-list/movies-list.jsx",
+                            lineNumber: 36,
+                            columnNumber: 13
+                        }, undefined)
+                    }, movie._id, false, {
+                        fileName: "src/components/movies-list/movies-list.jsx",
+                        lineNumber: 35,
+                        columnNumber: 11
+                    }, undefined))
+            }, void 0, false, {
+                fileName: "src/components/movies-list/movies-list.jsx",
+                lineNumber: 33,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true);
 };
-_s(MoviesList, "eStvhP8slTt+s7x6M95dK6yXYA4=", false, function() {
+_s(MoviesList, "1mv2r4fldzCJUu6D8izgurg/lnE=", false, function() {
     return [
+        (0, _reactRedux.useSelector),
+        (0, _reactRedux.useDispatch),
         (0, _reactRedux.useSelector)
     ];
 });
@@ -48990,7 +49027,25 @@ $RefreshReg$(_c, "MoviesList");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react-redux":"62sf7","@parcel/transformer-js/src/esmodule-helpers.js":"i6cIo","react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","../movie-card/movie-card":"bwuIu","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"enEzG","react":"21dqq"}],"8tFcc":[function(require,module,exports) {
+},{"react-redux":"62sf7","@parcel/transformer-js/src/esmodule-helpers.js":"i6cIo","react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","../movie-card/movie-card":"bwuIu","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"enEzG","react":"21dqq","../movies-filter/movies-filter":"kxBRK","../../redux/reducers/movies":"l0qwl"}],"kxBRK":[function(require,module,exports) {
+// import React from "react";
+// import { useSelector, useDispatch } from "react-redux";
+// import { Form } from "react-bootstrap";
+// import { setFilter } from "../../redux/reducers/movies";
+// export const moviesFilter = () => {
+//   const filter = useSelector((state) => state.books.filter);
+//   const dispatch = useDispatch();
+//   //   return (
+//   //     <Form.Control
+//   //       type="text"
+//   //       placeholder="Search Movies"
+//   //       value={filter}
+//   //       onChange={(e) => dispatch(setFilter(e.target.value))}
+//   //     />
+//   //   );
+// };
+
+},{}],"8tFcc":[function(require,module,exports) {
 // src/index.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
