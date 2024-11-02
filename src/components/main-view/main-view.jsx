@@ -140,9 +140,12 @@ export const MainView = () => {
                     {!user ? (
                       <Navigate to="/" replace />
                     ) : (
-                      <MoviesList />
+                      <>
+                        <MoviesList />
+                        <h3>movies</h3>
+                      </>
                       // <>
-                      //   {movies.map((movie) => (
+                      //   {movies?.map((movie) => (
                       //     <Col className="mb-4" key={movie._id} lg={3} sm={12}>
                       //       <MovieCard movie={movie} />
                       //     </Col>
