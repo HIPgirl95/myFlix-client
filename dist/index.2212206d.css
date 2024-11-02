@@ -6252,8 +6252,8 @@
   }
 }
 
-.my-flix {
-  background-color: #a0d7ef;
+body {
+  background-color: #a0d7ef !important;
 }
 
 .navbar {

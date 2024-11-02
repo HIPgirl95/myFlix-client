@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
 
 import "../../index.scss";
 
@@ -19,6 +20,10 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
             <Nav.Link as={Link} to="/" className="navigate-link">
               Movies
             </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+        <Nav>
+          <Navbar.Collapse className="justify-content-end">
             <Nav.Link
               as={Link}
               to={`/users/${encodeURIComponent(user._id)}`}
@@ -34,8 +39,8 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
             >
               Logout
             </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+          </Navbar.Collapse>
+        </Nav>
       </Container>
     </Navbar>
   );
