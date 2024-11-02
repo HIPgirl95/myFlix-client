@@ -6,8 +6,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { FavoriteMovieButton } from "../profile-view/favorite-movie-button";
+import { useSelector } from "react-redux";
 
-export const MovieView = ({ movies, Username, user, setUser }) => {
+export const MovieView = ({ Username, user, setUser }) => {
+  const movies = useSelector((state) => state.movies);
   const { movie_id } = useParams();
   const movie = movies.find((m) => m._id === movie_id);
   return (

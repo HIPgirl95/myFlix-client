@@ -8,9 +8,11 @@ import { DeleteAccountButton } from "./delete-profile";
 import { UpdateInfo } from "./update-info";
 import { Card } from "react-bootstrap";
 import "./profile-view.scss";
+import { useSelector } from "react-redux";
 
-export const ProfileView = ({ user, onLoggedOut, movie }) => {
-  let favMovies = movie.filter((m) => user.FavMovies.includes(m._id));
+export const ProfileView = ({ user, onLoggedOut }) => {
+  const movie = useSelector((state) => state.movies);
+  let favMovies = movie?.filter((m) => user.FavMovies.includes(m._id));
   return (
     <Row>
       <Col sm={12} lg={4}>
@@ -21,7 +23,7 @@ export const ProfileView = ({ user, onLoggedOut, movie }) => {
       <Col>
         <Card id="fav-movie-card">
           <Card.Title>Favorite Movies</Card.Title>
-          {favMovies.map((movie) => (
+          {favMovies?.map((movie) => (
             <Card key={movie._id} id="fav-movie">
               <Card.Body>
                 <Col>

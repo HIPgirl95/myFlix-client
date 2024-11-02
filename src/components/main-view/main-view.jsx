@@ -24,7 +24,7 @@ export const MainView = () => {
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
-  const movies = useSelector((state) => state.movies.list);
+  const movies = useSelector((state) => state.movies);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onLoggedOut = () => {
@@ -124,7 +124,6 @@ export const MainView = () => {
                     ) : (
                       <Col md={8}>
                         <MovieView
-                          movies={movies}
                           Username={user.Username}
                           user={user}
                           setUser={setUser}
