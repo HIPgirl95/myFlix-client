@@ -6262,12 +6262,17 @@ body {
 }
 
 .logo.navbar-brand {
-  color: #fbfaf9;
+  color: #fff;
   padding-left: 20px;
+  font-weight: 500;
 }
 
 .logout.nav-link.btn.btn-primary:hover {
   background-color: #a0d7ef;
+}
+
+.logout.nav-link.btn.btn-primary, .navigate-link.nav-link {
+  color: #000;
 }
 
 .navigate-link.nav-link:hover {
@@ -12522,7 +12527,7 @@ h4 {
 }
 
 h3 {
-  text-decoration: underline;
+  font-weight: bold !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {

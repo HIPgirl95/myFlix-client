@@ -42511,10 +42511,10 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MovieView", ()=>MovieView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _movieViewScss = require("./movie-view.scss");
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactRouterDom = require("react-router-dom");
-var _movieViewScss = require("./movie-view.scss");
 var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
@@ -44232,7 +44232,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                     as: (0, _reactRouterDom.Link),
                     to: "/",
                     className: "logo",
-                    children: "Movies App"
+                    children: "myFlix"
                 }, void 0, false, {
                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
                     lineNumber: 14,

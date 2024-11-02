@@ -17,11 +17,20 @@ body {
 
 .logo.navbar-brand {
   padding-left: 20px;
-  color: $light-color;
+  color: white;
+  font-weight: 500;
 }
 
 .logout.nav-link.btn.btn-primary:hover {
   background-color: $base-color;
+}
+
+.logout.nav-link.btn.btn-primary {
+  color: black;
+}
+
+.navigate-link.nav-link {
+  color: black;
 }
 
 .navigate-link.nav-link:hover {
