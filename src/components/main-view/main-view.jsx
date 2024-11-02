@@ -142,7 +142,6 @@ export const MainView = () => {
                     ) : (
                       <>
                         <MoviesList />
-                        <h3>movies</h3>
                       </>
                       // <>
                       //   {movies?.map((movie) => (

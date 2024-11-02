@@ -9,7 +9,7 @@ import { FavoriteMovieButton } from "../profile-view/favorite-movie-button";
 import { useSelector } from "react-redux";
 
 export const MovieView = ({ Username, user, setUser }) => {
-  const movies = useSelector((state) => state.movies);
+  const movies = useSelector((state) => state.movies.list);
   const { movie_id } = useParams();
   const movie = movies.find((m) => m._id === movie_id);
   return (

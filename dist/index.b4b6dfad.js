@@ -27611,21 +27611,12 @@ const MainView = ()=>{
                                         lineNumber: 141,
                                         columnNumber: 23
                                     }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _moviesList.MoviesList), {}, void 0, false, {
-                                                fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 144,
-                                                columnNumber: 25
-                                            }, void 0),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                                children: "movies"
-                                            }, void 0, false, {
-                                                fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 145,
-                                                columnNumber: 25
-                                            }, void 0)
-                                        ]
-                                    }, void 0, true)
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _moviesList.MoviesList), {}, void 0, false, {
+                                            fileName: "src/components/main-view/main-view.jsx",
+                                            lineNumber: 144,
+                                            columnNumber: 25
+                                        }, void 0)
+                                    }, void 0, false)
                                 }, void 0, false)
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
@@ -27640,7 +27631,7 @@ const MainView = ()=>{
                                         replace: true
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 163,
+                                        lineNumber: 162,
                                         columnNumber: 23
                                     }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                         md: 8,
@@ -27650,18 +27641,18 @@ const MainView = ()=>{
                                             movie: movies
                                         }, void 0, false, {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 166,
+                                            lineNumber: 165,
                                             columnNumber: 25
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 165,
+                                        lineNumber: 164,
                                         columnNumber: 23
                                     }, void 0)
                                 }, void 0, false)
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 158,
+                                lineNumber: 157,
                                 columnNumber: 15
                             }, undefined)
                         ]
@@ -42535,7 +42526,7 @@ var _reactRedux = require("react-redux");
 var _s = $RefreshSig$();
 const MovieView = ({ Username, user, setUser })=>{
     _s();
-    const movies = (0, _reactRedux.useSelector)((state)=>state.movies);
+    const movies = (0, _reactRedux.useSelector)((state)=>state.movies.list);
     const { movie_id } = (0, _reactRouterDom.useParams)();
     const movie = movies.find((m)=>m._id === movie_id);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -44429,8 +44420,8 @@ var _reactRedux = require("react-redux");
 var _s = $RefreshSig$();
 const ProfileView = ({ user, onLoggedOut })=>{
     _s();
-    const movie = (0, _reactRedux.useSelector)((state)=>state.movies);
-    let favMovies = movie?.filter((m)=>user.FavMovies.includes(m._id));
+    const movie = (0, _reactRedux.useSelector)((state)=>state.movies.list);
+    let favMovies = movie.filter((m)=>user.FavMovies.includes(m._id));
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
@@ -44482,7 +44473,7 @@ const ProfileView = ({ user, onLoggedOut })=>{
                                 lineNumber: 25,
                                 columnNumber: 11
                             }, undefined),
-                            favMovies?.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                            favMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
                                     id: "fav-movie",
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
@@ -44940,7 +44931,6 @@ $RefreshReg$(_c, "UpdateInfo");
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"i6cIo","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"enEzG"}],"eyKYH":[function() {},{}],"l0qwl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "moviesSlice", ()=>moviesSlice);
 parcelHelpers.export(exports, "setMovies", ()=>setMovies);
 var _toolkit = require("@reduxjs/toolkit");
 const moviesSlice = (0, _toolkit.createSlice)({
@@ -44950,11 +44940,12 @@ const moviesSlice = (0, _toolkit.createSlice)({
     },
     reducers: {
         setMovies: (state, action)=>{
-            state.movies = action.payload;
+            state.list = action.payload;
         }
     }
 });
-const { setMovies } = moviesSlice.actions; // export default moviesSlice.reducer;
+const { setMovies } = moviesSlice.actions;
+exports.default = moviesSlice.reducer;
 
 },{"@reduxjs/toolkit":"fuua8","@parcel/transformer-js/src/esmodule-helpers.js":"i6cIo"}],"fuua8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -48944,10 +48935,13 @@ var _movieCard = require("../movie-card/movie-card");
 var _s = $RefreshSig$();
 const MoviesList = ()=>{
     _s();
-    const movies = (0, _reactRedux.useSelector)((state)=>state.movies);
+    const movies = (0, _reactRedux.useSelector)((state)=>state.movies.list);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-            children: movies?.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+            children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                    className: "mb-4",
+                    lg: 3,
+                    sm: 12,
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                         movie: movie
                     }, void 0, false, {
@@ -49913,9 +49907,10 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "store", ()=>store);
 var _toolkit = require("@reduxjs/toolkit");
 var _movies = require("./reducers/movies");
+var _moviesDefault = parcelHelpers.interopDefault(_movies);
 const store = (0, _toolkit.configureStore)({
     reducer: {
-        movies: (0, _movies.moviesSlice)
+        movies: (0, _moviesDefault.default)
     }
 });
 
