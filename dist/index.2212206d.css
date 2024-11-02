@@ -6264,6 +6264,7 @@ body {
 .logo.navbar-brand {
   color: #fff;
   padding-left: 20px;
+  font-size: x-large;
   font-weight: 500;
 }
 
@@ -6273,6 +6274,7 @@ body {
 
 .logout.nav-link.btn.btn-primary, .navigate-link.nav-link {
   color: #000;
+  font-size: large;
 }
 
 .navigate-link.nav-link:hover {
