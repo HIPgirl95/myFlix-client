@@ -22,3 +22,9 @@ const container = document.querySelector("#root");
 const root = createRoot(container);
 
 root.render(<MyFlixApplication />);
+
+// Can test app by using
+// parcel src/index.html
+// in the terminal.
+
+// http://localhost:1234

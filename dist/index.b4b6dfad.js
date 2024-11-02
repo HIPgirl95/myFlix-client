@@ -2995,7 +2995,10 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MyFlixApplication, {}, void
     fileName: "src/index.jsx",
     lineNumber: 24,
     columnNumber: 13
-}, undefined));
+}, undefined)); // Can test app by using
+ // parcel src/index.html
+ // in the terminal.
+ // http://localhost:1234
 var _c;
 $RefreshReg$(_c, "MyFlixApplication");
 
