@@ -1,5 +1,4 @@
 import "./movie-view.scss";
-import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";

@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Col, Row } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
-import { moviesFilter } from "../movies-filter/movies-filter";
 import { useSelector, useDispatch } from "react-redux";
 import { Form } from "react-bootstrap";
 import { setFilter } from "../../redux/reducers/movies";

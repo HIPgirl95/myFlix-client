@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useParams } from "react-router";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
