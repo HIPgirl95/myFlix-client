@@ -1,18 +1,41 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-$color: steelblue;
+$base-color: #a0d7ef;
+$light-color: #fbfaf9;
+$dark-color: #2f9ed1;
+$light-accent: #b6bb98;
+$dark-accent: #84a8d6;
 
-.my-flix {
-  color: $color;
+body {
+  background-color: $base-color !important;
 }
 
-#main-view-div {
-  padding: 3px;
-  margin: 3px;
+.navbar {
+  background-color: $dark-color;
+  margin-bottom: 10px;
 }
 
-#main-view-title:hover {
-  cursor: pointer;
-  border: 3px solid black;
-  padding: 5px;
+.logo.navbar-brand {
+  padding-left: 20px;
+  color: white;
+  font-weight: 500;
+  font-size: x-large;
+}
+
+.logout.nav-link.btn.btn-primary:hover {
+  background-color: $base-color;
+}
+
+.logout.nav-link.btn.btn-primary {
+  color: black;
+  font-size: large;
+}
+
+.navigate-link.nav-link {
+  color: black;
+  font-size: large;
+}
+
+.navigate-link.nav-link:hover {
+  color: $light-color;
 }

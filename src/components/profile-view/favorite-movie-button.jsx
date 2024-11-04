@@ -75,7 +75,7 @@ export const FavoriteMovieButton = ({
 
   if (isFavorite) {
     return (
-      <Button variant="outline-danger" onClick={RemoveFromFavs}>
+      <Button variant="outline-dark" onClick={RemoveFromFavs}>
         Remove from Favorites!
       </Button>
     );

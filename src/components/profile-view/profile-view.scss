@@ -1,0 +1,19 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+$base-color: #a0d7ef;
+$light-color: #fbfaf9;
+$dark-color: #2f9ed1;
+$light-accent: #b6bb98;
+$dark-accent: #84a8d6;
+
+#fav-movie-card {
+  background-color: $dark-accent;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 3px;
+}
+
+#fav-movie {
+  margin: 2px;
+  background-color: $base-color;
+}
