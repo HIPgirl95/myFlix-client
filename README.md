@@ -5,8 +5,8 @@ My movie API is hosted by Heroku: https://hannah-hogan-movie-api-ea6c47e0093b.he
 
 <h2>Features</h2>
 
-<em>User Profiles</em> - Users can create and manage their own profile.
-<em>Movie List</em> - View a collection of movies
-<em>Movie Details</em> - View details about a specific movie, and add it to your favorites list
-<em>Favorites List</em> - View your profile and see all your favorite movies
-<em>Responsive Design</em> - Adapts to different screen sizes
+<em>User Profiles</em> - Users can create and manage their own profile. </br>
+<em>Movie List</em> - View a collection of movies</br>
+<em>Movie Details</em> - View details about a specific movie, and add it to your favorites list</br>
+<em>Favorites List</em> - View your profile and see all your favorite movies</br>
+<em>Responsive Design</em> - Adapts to different screen sizes</br>
