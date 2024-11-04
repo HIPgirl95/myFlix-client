@@ -7231,12 +7231,6 @@ button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disab
   padding: 5px;
 }
 
-.movieCardImg {
-  align-self: center;
-  max-width: 50%;
-  padding-top: 5px;
-}
-
 img {
   width: 100%;
 }
@@ -20544,5 +20538,11 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+
+.movieCardImg {
+  align-self: center;
+  max-width: 50%;
+  padding-top: 5px;
 }
 /*# sourceMappingURL=index.2212206d.css.map */
