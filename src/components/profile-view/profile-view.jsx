@@ -9,6 +9,11 @@ import { Card } from "react-bootstrap";
 import "./profile-view.scss";
 import { useSelector } from "react-redux";
 
+const formatBirthday = (birthday) => {
+  const [year, month, day] = birthday.split("T")[0].split("-");
+  return `${month}/${day}/${year}`;
+};
+
 export const ProfileView = ({ user, onLoggedOut }) => {
   const movie = useSelector((state) => state.movies.list);
   let favMovies = movie.filter((m) => user.FavMovies.includes(m._id));
@@ -17,7 +22,7 @@ export const ProfileView = ({ user, onLoggedOut }) => {
       <Col sm={12} lg={4}>
         <h2>{user.Username}</h2>
         <div>Email: {user.Email}</div>
-        <div>Birthday: {user.Birthday}</div>
+        <div>Birthday: {formatBirthday(user.Birthday)}</div>
       </Col>
       <Col>
         <Card id="fav-movie-card">
