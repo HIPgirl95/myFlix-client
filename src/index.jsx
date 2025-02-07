@@ -6,13 +6,14 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux/dist/react-redux";
 import { store } from "./redux/store";
 import { LoginView } from "./components/login-view/login-view";
+import { SignupView } from "./components/signup-view/signup-view";
 
 const MyFlixApplication = () => {
   return (
     <div className="my-flix">
       <Provider store={store}>
         <BrowserRouter>
-          <LoginView />
+          <SignupView />
         </BrowserRouter>
       </Provider>
     </div>
