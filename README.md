@@ -16,15 +16,15 @@ To set up and run the project locally, follow these steps:
 1. Clone the repository:
    ```sh
    git clone <repository_url>
-   cd myFlix-frontend ```
+   cd myFlix-frontend 
 
 2. Install dependencies:
    ```sh
-   npm install ```
+   npm install 
 
 3. Start the development server:
    ```sh
-   npm start ```
+   npm start 
 
 ## Usage
 - Users can sign up, log in, and update their profiles.
