@@ -5,13 +5,14 @@ import Container from "react-bootstrap/Container";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux/dist/react-redux";
 import { store } from "./redux/store";
+import { LoginView } from "./components/login-view/login-view";
 
 const MyFlixApplication = () => {
   return (
     <div className="my-flix">
       <Provider store={store}>
         <BrowserRouter>
-          <MainView />
+          <LoginView />
         </BrowserRouter>
       </Provider>
     </div>
