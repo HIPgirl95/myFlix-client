@@ -13,7 +13,7 @@ const MyFlixApplication = () => {
     <div className="my-flix">
       <Provider store={store}>
         <BrowserRouter>
-          <SignupView />
+          <LoginView />
         </BrowserRouter>
       </Provider>
     </div>
