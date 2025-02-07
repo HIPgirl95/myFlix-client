@@ -43,3 +43,6 @@ If you would like to contribute to this project, follow these steps:
 3. Commit your changes (`git commit -m 'Add feature'`).
 4. Push to your branch (`git push origin feature-name`).
 5. Submit a pull request.
+
+### Documentation
+This documentation was enhanced by AI
