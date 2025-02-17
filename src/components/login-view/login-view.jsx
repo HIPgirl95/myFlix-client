@@ -18,6 +18,7 @@ export const LoginView = ({ onLoggedIn }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     })
@@ -33,7 +34,7 @@ export const LoginView = ({ onLoggedIn }) => {
         }
       })
       .catch((e) => {
-        alert("Something went wrong: " + e);
+        alert("Something went wrong: ");
       });
   };
   return (
