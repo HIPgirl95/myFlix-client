@@ -19,7 +19,7 @@ export const SignupView = () => {
       Birthday: birthday,
     };
 
-    fetch("http://54.91.115.155/users", {
+    fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

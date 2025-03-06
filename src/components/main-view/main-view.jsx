@@ -50,7 +50,7 @@ export const MainView = () => {
   useEffect(() => {
     if (!token) return;
 
-    fetch("http://54.91.115.155/movies", {
+    fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())

@@ -14,7 +14,7 @@ export const LoginView = ({ onLoggedIn }) => {
       Password: password,
     };
 
-    fetch("http://54.91.115.155/login", {
+    fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

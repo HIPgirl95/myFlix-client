@@ -9,12 +9,15 @@ export const DeleteAccountButton = ({ Username, onLoggedOut }) => {
   const storedToken = localStorage.getItem("token");
 
   const handleDelete = (event) => {
-    fetch(`http://54.91.115.155/users/${Username}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${storedToken}`,
-      },
-    }).then((response) => {
+    fetch(
+      `https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users/${Username}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${storedToken}`,
+        },
+      }
+    ).then((response) => {
       if (response.ok) {
         alert("Account Deleted");
       } else {
