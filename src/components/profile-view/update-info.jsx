@@ -24,17 +24,14 @@ export const UpdateInfo = ({ Username, onLoggedOut }) => {
       Email: email,
       Birthday: birthday,
     };
-    fetch(
-      `https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users/${Username}`,
-      {
-        method: "PUT",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${storedToken}`,
-        },
-      }
-    )
+    fetch(`http://54.91.115.155/users/${Username}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${storedToken}`,
+      },
+    })
       .then((response) => {
         if (response.ok) {
           alert("Account Updated. Returning to login page.");

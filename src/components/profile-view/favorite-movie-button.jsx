@@ -13,16 +13,13 @@ export const FavoriteMovieButton = ({
   const storedToken = localStorage.getItem("token");
   const [isFavorite, setIsFavorite] = useState(false);
   const AddToFavs = () => {
-    fetch(
-      `https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users/${Username}/movies/${movieId}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${storedToken}`,
-        },
-      }
-    )
+    fetch(`http://54.91.115.155/users/${Username}/movies/${movieId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${storedToken}`,
+      },
+    })
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -38,16 +35,13 @@ export const FavoriteMovieButton = ({
       });
   };
   const RemoveFromFavs = () => {
-    fetch(
-      `https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users/${Username}/movies/${movieId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${storedToken}`,
-        },
-      }
-    )
+    fetch(`http://54.91.115.155/users/${Username}/movies/${movieId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${storedToken}`,
+      },
+    })
       .then((response) => {
         if (response.ok) {
           return response.json();
