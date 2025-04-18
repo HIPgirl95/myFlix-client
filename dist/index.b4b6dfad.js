@@ -44856,27 +44856,16 @@ const NoUserNav = ()=>{
                     id: "basic-navbar-nav",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
                         className: "me-auto",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                as: (0, _reactRouterDom.Link),
-                                to: "/",
-                                children: "Signup/Login"
-                            }, void 0, false, {
-                                fileName: "src/components/no-user-nav/no-user-nav.jsx",
-                                lineNumber: 19,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                as: (0, _reactRouterDom.Link),
-                                to: "/suggestions",
-                                children: "Suggest Movies"
-                            }, void 0, false, {
-                                fileName: "src/components/no-user-nav/no-user-nav.jsx",
-                                lineNumber: 22,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                            as: (0, _reactRouterDom.Link),
+                            to: "/",
+                            children: "Signup/Login"
+                        }, void 0, false, {
+                            fileName: "src/components/no-user-nav/no-user-nav.jsx",
+                            lineNumber: 19,
+                            columnNumber: 13
+                        }, undefined)
+                    }, void 0, false, {
                         fileName: "src/components/no-user-nav/no-user-nav.jsx",
                         lineNumber: 18,
                         columnNumber: 11
