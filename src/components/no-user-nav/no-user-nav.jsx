@@ -19,6 +19,9 @@ export const NoUserNav = () => {
             <Nav.Link as={Link} to={"/"}>
               Signup/Login
             </Nav.Link>
+            <Nav.Link as={Link} to={"/suggestions"}>
+              Suggest Movies
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
