@@ -2,6 +2,7 @@ import { func } from "prop-types";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
+import { addMovieToFavs, removeMovieFromFavs } from "../../api";
 
 export const FavoriteMovieButton = ({
   Username,
@@ -13,16 +14,7 @@ export const FavoriteMovieButton = ({
   const storedToken = localStorage.getItem("token");
   const [isFavorite, setIsFavorite] = useState(false);
   const AddToFavs = () => {
-    fetch(
-      `https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users/${Username}/movies/${movieId}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${storedToken}`,
-        },
-      }
-    )
+    addMovieToFavs(storedToken, Username, movieId)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -38,16 +30,7 @@ export const FavoriteMovieButton = ({
       });
   };
   const RemoveFromFavs = () => {
-    fetch(
-      `https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users/${Username}/movies/${movieId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${storedToken}`,
-        },
-      }
-    )
+    removeMovieFromFavs(storedToken, Username, movieId)
       .then((response) => {
         if (response.ok) {
           return response.json();

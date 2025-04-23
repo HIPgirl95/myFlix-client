@@ -5,6 +5,7 @@ import { Modal } from "react-bootstrap";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { updateUserInfo } from "../../api";
 
 export const UpdateInfo = ({ Username, onLoggedOut }) => {
   const [showModal, setShowModal] = useState(false);
@@ -24,17 +25,7 @@ export const UpdateInfo = ({ Username, onLoggedOut }) => {
       Email: email,
       Birthday: birthday,
     };
-    fetch(
-      `https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users/${Username}`,
-      {
-        method: "PUT",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${storedToken}`,
-        },
-      }
-    )
+    updateUserInfo(storedToken, Username, data)
       .then((response) => {
         if (response.ok) {
           alert("Account Updated. Returning to login page.");

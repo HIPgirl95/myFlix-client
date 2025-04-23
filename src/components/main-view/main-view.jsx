@@ -14,6 +14,7 @@ import { Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { setMovies } from "../../redux/reducers/movies";
 import { MoviesList } from "../movies-list/movies-list";
+import { getMovies } from "../../api";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -30,29 +31,10 @@ export const MainView = () => {
     navigate("/");
   };
 
-  // useEffect(() => {
-  //   if (!token) return;
-  //   fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users", {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       const userFromApi = data.map((doc) => {
-  //         return {
-  //           _id: doc._id,
-  //           Username: doc.Username,
-  //         };
-  //       });
-  //       setUser(userFromApi);
-  //     });
-  // }, [token]);
-
   useEffect(() => {
     if (!token) return;
 
-    fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/movies", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+    getMovies(storedToken)
       .then((response) => response.json())
       .then((data) => {
         const moviesFromApi = data.map((doc) => {

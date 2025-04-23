@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { deleteUser } from "../../api";
 
 export const DeleteAccountButton = ({ Username, onLoggedOut }) => {
   const [showModal, setShowModal] = useState(false);
@@ -9,15 +10,7 @@ export const DeleteAccountButton = ({ Username, onLoggedOut }) => {
   const storedToken = localStorage.getItem("token");
 
   const handleDelete = (event) => {
-    fetch(
-      `https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users/${Username}`,
-      {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${storedToken}`,
-        },
-      }
-    ).then((response) => {
+    deleteUser(storedToken, Username).then((response) => {
       if (response.ok) {
         alert("Account Deleted");
       } else {

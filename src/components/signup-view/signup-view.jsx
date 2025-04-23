@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { createUser } from "../../api";
 
 export const SignupView = () => {
   const [username, setUsername] = useState("");
@@ -19,13 +20,7 @@ export const SignupView = () => {
       Birthday: birthday,
     };
 
-    fetch("https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com/users", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((response) => {
+    createUser(data).then((response) => {
       if (response.ok) {
         alert("Signup successful");
       } else {
