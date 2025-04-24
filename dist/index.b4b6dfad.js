@@ -42757,7 +42757,7 @@ parcelHelpers.export(exports, "addMovieToFavs", ()=>addMovieToFavs);
 parcelHelpers.export(exports, "removeMovieFromFavs", ()=>removeMovieFromFavs);
 parcelHelpers.export(exports, "updateUserInfo", ()=>updateUserInfo);
 const heroku_url = "https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com";
-const BASE_API_URL = "http://52.6.207.97";
+const BASE_API_URL = heroku_url; //"http://52.6.207.97";
 function createUser(data) {
     return fetch(`${BASE_API_URL}/users`, {
         method: "POST",
@@ -44333,6 +44333,7 @@ var _deleteProfile = require("./delete-profile");
 var _updateInfo = require("./update-info");
 var _profileViewScss = require("./profile-view.scss");
 var _reactRedux = require("react-redux");
+var _suggestions = require("../suggestions/suggestions");
 var _s = $RefreshSig$();
 const formatBirthday = (birthday)=>{
     const [year, month, day] = birthday.split("T")[0].split("-");
@@ -44352,7 +44353,7 @@ const ProfileView = ({ user, onLoggedOut })=>{
                         children: user.Username
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 23,
+                        lineNumber: 24,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -44362,7 +44363,7 @@ const ProfileView = ({ user, onLoggedOut })=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 24,
+                        lineNumber: 25,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -44372,17 +44373,28 @@ const ProfileView = ({ user, onLoggedOut })=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 25,
+                        lineNumber: 26,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 22,
+                lineNumber: 23,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                 children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _suggestions.Suggestions), {}, void 0, false, {
+                            fileName: "src/components/profile-view/profile-view.jsx",
+                            lineNumber: 30,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 29,
+                        columnNumber: 9
+                    }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
                         id: "fav-movie-card",
                         children: [
@@ -44390,7 +44402,7 @@ const ProfileView = ({ user, onLoggedOut })=>{
                                 children: "Favorite Movies"
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 29,
+                                lineNumber: 33,
                                 columnNumber: 11
                             }, undefined),
                             favMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
@@ -44404,33 +44416,33 @@ const ProfileView = ({ user, onLoggedOut })=>{
                                                     children: movie.Title
                                                 }, void 0, false, {
                                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                                    lineNumber: 36,
+                                                    lineNumber: 40,
                                                     columnNumber: 21
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 35,
+                                                lineNumber: 39,
                                                 columnNumber: 19
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 33,
+                                            lineNumber: 37,
                                             columnNumber: 17
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 32,
+                                        lineNumber: 36,
                                         columnNumber: 15
                                     }, undefined)
                                 }, movie._id, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 31,
+                                    lineNumber: 35,
                                     columnNumber: 13
                                 }, undefined))
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 28,
+                        lineNumber: 32,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _updateInfo.UpdateInfo), {
@@ -44438,7 +44450,7 @@ const ProfileView = ({ user, onLoggedOut })=>{
                         onLoggedOut: onLoggedOut
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 43,
+                        lineNumber: 47,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deleteProfile.DeleteAccountButton), {
@@ -44446,13 +44458,13 @@ const ProfileView = ({ user, onLoggedOut })=>{
                         onLoggedOut: onLoggedOut
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 44,
+                        lineNumber: 48,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 27,
+                lineNumber: 28,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -44466,29 +44478,29 @@ const ProfileView = ({ user, onLoggedOut })=>{
                                 children: "Back"
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 53,
+                                lineNumber: 57,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 52,
+                            lineNumber: 56,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 51,
+                        lineNumber: 55,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 49,
+                lineNumber: 53,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/profile-view.jsx",
-        lineNumber: 21,
+        lineNumber: 22,
         columnNumber: 5
     }, undefined);
 };
@@ -44512,7 +44524,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-router-dom":"9xmpe","react-bootstrap":"3AD9A","./delete-profile":"eSmSC","./update-info":"jTEl0","./profile-view.scss":"eyKYH","react-redux":"62sf7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eSmSC":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-router-dom":"9xmpe","react-bootstrap":"3AD9A","./delete-profile":"eSmSC","./update-info":"jTEl0","./profile-view.scss":"eyKYH","react-redux":"62sf7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../suggestions/suggestions":"iosF8"}],"eSmSC":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5738 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -44838,7 +44850,141 @@ $RefreshReg$(_c, "UpdateInfo");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../api":"8Zgej"}],"eyKYH":[function() {},{}],"eBaMl":[function() {},{}],"gU3Lk":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../api":"8Zgej"}],"eyKYH":[function() {},{}],"iosF8":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b4e2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b4e2.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Suggestions", ()=>Suggestions);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+const Suggestions = ()=>{
+    _s();
+    const fileInputRef = (0, _react.useRef)(null);
+    const [images, setImages] = (0, _react.useState)([]);
+    const handleUpload = async (e)=>{
+        e.preventDefault();
+        const formData = new FormData();
+        const file = fileInputRef.current.files[0];
+        if (!file) return;
+        formData.append("image", file);
+        try {
+            const response = await fetch("/images", {
+                method: "POST",
+                body: formData
+            });
+            if (response.ok) {
+                console.log("Image uploaded!");
+                handleRetrieveImages();
+            } else console.error("Upload Failed");
+        } catch (error) {
+            console.error("Upload error: ", error);
+        }
+    };
+    const handleRetrieveImages = async ()=>{
+        try {
+            const response = await fetch("/images");
+            const files = await response.json();
+            if (!Array.isArray(files)) throw new Error("Invalid Response Format");
+            setImages(files);
+        } catch (error) {
+            console.error("error retrieving images: ", error);
+        }
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h6", {
+                children: [
+                    "If you want a movie to be added to the database, upload a movie poster (image file). ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/components/suggestions/suggestions.jsx",
+                        lineNumber: 50,
+                        columnNumber: 23
+                    }, undefined),
+                    "The image name should be the movie title."
+                ]
+            }, void 0, true, {
+                fileName: "src/components/suggestions/suggestions.jsx",
+                lineNumber: 48,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                onSubmit: handleUpload,
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "file",
+                        name: "image",
+                        ref: fileInputRef
+                    }, void 0, false, {
+                        fileName: "src/components/suggestions/suggestions.jsx",
+                        lineNumber: 54,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        type: "submit",
+                        children: "Upload"
+                    }, void 0, false, {
+                        fileName: "src/components/suggestions/suggestions.jsx",
+                        lineNumber: 55,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/suggestions/suggestions.jsx",
+                lineNumber: 53,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: handleRetrieveImages,
+                children: "Show Posters"
+            }, void 0, false, {
+                fileName: "src/components/suggestions/suggestions.jsx",
+                lineNumber: 58,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                id: "gallery",
+                children: images.map((file, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                        src: `https://s3.us-east-1.amazonaws.com/cf-cc-2.5/resized/${file}`,
+                        alt: file,
+                        style: {
+                            maxWidth: "200px",
+                            margin: "10px"
+                        }
+                    }, index, false, {
+                        fileName: "src/components/suggestions/suggestions.jsx",
+                        lineNumber: 62,
+                        columnNumber: 11
+                    }, undefined))
+            }, void 0, false, {
+                fileName: "src/components/suggestions/suggestions.jsx",
+                lineNumber: 60,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/suggestions/suggestions.jsx",
+        lineNumber: 47,
+        columnNumber: 5
+    }, undefined);
+};
+_s(Suggestions, "U0NzTKaUwtHfn08UrXUmzHe3ZHg=");
+_c = Suggestions;
+var _c;
+$RefreshReg$(_c, "Suggestions");
+
+  $parcel$ReactRefreshHelpers$b4e2.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"eBaMl":[function() {},{}],"gU3Lk":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1e4d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

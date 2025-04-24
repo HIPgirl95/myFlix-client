@@ -8,6 +8,7 @@ import { UpdateInfo } from "./update-info";
 import { Card } from "react-bootstrap";
 import "./profile-view.scss";
 import { useSelector } from "react-redux";
+import { Suggestions } from "../suggestions/suggestions";
 
 const formatBirthday = (birthday) => {
   const [year, month, day] = birthday.split("T")[0].split("-");
@@ -25,6 +26,9 @@ export const ProfileView = ({ user, onLoggedOut }) => {
         <div>Birthday: {formatBirthday(user.Birthday)}</div>
       </Col>
       <Col>
+        <h5>
+          <Suggestions />
+        </h5>
         <Card id="fav-movie-card">
           <Card.Title>Favorite Movies</Card.Title>
           {favMovies.map((movie) => (

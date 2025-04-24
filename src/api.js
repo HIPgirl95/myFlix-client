@@ -1,5 +1,5 @@
 const heroku_url = "https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com";
-const BASE_API_URL = "http://52.6.207.97";
+const BASE_API_URL = heroku_url; //"http://52.6.207.97";
 export function createUser(data) {
   return fetch(`${BASE_API_URL}/users`, {
     method: "POST",
