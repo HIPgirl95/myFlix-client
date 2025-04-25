@@ -27299,7 +27299,7 @@ const MainView = ()=>{
     };
     (0, _react.useEffect)(()=>{
         if (!token) return;
-        (0, _api.getMovies)(storedToken).then((response)=>response.json()).then((data)=>{
+        (0, _api.getMovies)(token).then((response)=>response.json()).then((data)=>{
             const moviesFromApi = data.map((doc)=>{
                 return {
                     _id: doc._id,
@@ -42750,6 +42750,8 @@ function registerExportsForReactRefresh(module1) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createUser", ()=>createUser);
+parcelHelpers.export(exports, "uploadImages", ()=>uploadImages);
+parcelHelpers.export(exports, "getImages", ()=>getImages);
 parcelHelpers.export(exports, "getMovies", ()=>getMovies);
 parcelHelpers.export(exports, "login", ()=>login);
 parcelHelpers.export(exports, "deleteUser", ()=>deleteUser);
@@ -42757,9 +42759,11 @@ parcelHelpers.export(exports, "addMovieToFavs", ()=>addMovieToFavs);
 parcelHelpers.export(exports, "removeMovieFromFavs", ()=>removeMovieFromFavs);
 parcelHelpers.export(exports, "updateUserInfo", ()=>updateUserInfo);
 const heroku_url = "https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com";
-const BASE_API_URL = heroku_url; //"http://52.6.207.97";
+const local_dev_URL = "http://localhost:8080";
+const LoadBalancer_URL = "http://HannahHogan-CF-22-LoadBalancer-527630731.us-east-1.elb.amazonaws.com";
+const Active_URL = local_dev_URL;
 function createUser(data) {
-    return fetch(`${BASE_API_URL}/users`, {
+    return fetch(`${Active_URL}/users`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -42767,15 +42771,32 @@ function createUser(data) {
         }
     });
 }
-function getMovies(storedToken) {
-    return fetch(`${BASE_API_URL}/movies`, {
+const uploadImages = async (formData, token)=>{
+    return fetch(`${Active_URL}/images`, {
+        method: "POST",
         headers: {
-            Authorization: `Bearer ${storedToken}`
+            Authorization: `Bearer ${token}`
+        },
+        body: formData
+    });
+};
+const getImages = async (token)=>{
+    return fetch(`${Active_URL}/images`, {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+};
+function getMovies(token) {
+    return fetch(`${Active_URL}/movies`, {
+        headers: {
+            Authorization: `Bearer ${token}`
         }
     });
 }
 function login(data) {
-    return fetch(`${BASE_API_URL}/login`, {
+    return fetch(`${Active_URL}/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -42784,7 +42805,7 @@ function login(data) {
     });
 }
 function deleteUser(token, username) {
-    return fetch(`${BASE_API_URL}/users/${username}`, {
+    return fetch(`${Active_URL}/users/${username}`, {
         method: "DELETE",
         headers: {
             Authorization: `Bearer ${token}`
@@ -42792,7 +42813,7 @@ function deleteUser(token, username) {
     });
 }
 function addMovieToFavs(token, username, movieId) {
-    return fetch(`${BASE_API_URL}/users/${username}/movies/${movieId}`, {
+    return fetch(`${Active_URL}/users/${username}/movies/${movieId}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -42801,7 +42822,7 @@ function addMovieToFavs(token, username, movieId) {
     });
 }
 function removeMovieFromFavs(token, username, movieId) {
-    return fetch(`${BASE_API_URL}/users/${username}/movies/${movieId}`, {
+    return fetch(`${Active_URL}/users/${username}/movies/${movieId}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -42810,7 +42831,7 @@ function removeMovieFromFavs(token, username, movieId) {
     });
 }
 function updateUserInfo(token, username, data) {
-    return fetch(`${BASE_API_URL}/users/${username}`, {
+    return fetch(`${Active_URL}/users/${username}`, {
         method: "PUT",
         body: JSON.stringify(data),
         headers: {
@@ -44863,11 +44884,13 @@ parcelHelpers.export(exports, "Suggestions", ()=>Suggestions);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _api = require("../../api");
 var _s = $RefreshSig$();
 const Suggestions = ()=>{
     _s();
     const fileInputRef = (0, _react.useRef)(null);
     const [images, setImages] = (0, _react.useState)([]);
+    const storedToken = localStorage.getItem("token");
     const handleUpload = async (e)=>{
         e.preventDefault();
         const formData = new FormData();
@@ -44875,10 +44898,7 @@ const Suggestions = ()=>{
         if (!file) return;
         formData.append("image", file);
         try {
-            const response = await fetch("/images", {
-                method: "POST",
-                body: formData
-            });
+            const response = await (0, _api.uploadImages)(formData, storedToken);
             if (response.ok) {
                 console.log("Image uploaded!");
                 handleRetrieveImages();
@@ -44889,7 +44909,7 @@ const Suggestions = ()=>{
     };
     const handleRetrieveImages = async ()=>{
         try {
-            const response = await fetch("/images");
+            const response = await (0, _api.getImages)(storedToken);
             const files = await response.json();
             if (!Array.isArray(files)) throw new Error("Invalid Response Format");
             setImages(files);
@@ -44904,14 +44924,14 @@ const Suggestions = ()=>{
                     "If you want a movie to be added to the database, upload a movie poster (image file). ",
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                         fileName: "src/components/suggestions/suggestions.jsx",
-                        lineNumber: 50,
+                        lineNumber: 49,
                         columnNumber: 23
                     }, undefined),
                     "The image name should be the movie title."
                 ]
             }, void 0, true, {
                 fileName: "src/components/suggestions/suggestions.jsx",
-                lineNumber: 48,
+                lineNumber: 47,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -44923,7 +44943,7 @@ const Suggestions = ()=>{
                         ref: fileInputRef
                     }, void 0, false, {
                         fileName: "src/components/suggestions/suggestions.jsx",
-                        lineNumber: 54,
+                        lineNumber: 53,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -44931,13 +44951,13 @@ const Suggestions = ()=>{
                         children: "Upload"
                     }, void 0, false, {
                         fileName: "src/components/suggestions/suggestions.jsx",
-                        lineNumber: 55,
+                        lineNumber: 54,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/suggestions/suggestions.jsx",
-                lineNumber: 53,
+                lineNumber: 52,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -44945,7 +44965,7 @@ const Suggestions = ()=>{
                 children: "Show Posters"
             }, void 0, false, {
                 fileName: "src/components/suggestions/suggestions.jsx",
-                lineNumber: 58,
+                lineNumber: 57,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -44959,18 +44979,18 @@ const Suggestions = ()=>{
                         }
                     }, index, false, {
                         fileName: "src/components/suggestions/suggestions.jsx",
-                        lineNumber: 62,
+                        lineNumber: 61,
                         columnNumber: 11
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/suggestions/suggestions.jsx",
-                lineNumber: 60,
+                lineNumber: 59,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/suggestions/suggestions.jsx",
-        lineNumber: 47,
+        lineNumber: 46,
         columnNumber: 5
     }, undefined);
 };
@@ -44984,7 +45004,7 @@ $RefreshReg$(_c, "Suggestions");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"eBaMl":[function() {},{}],"gU3Lk":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","../../api":"8Zgej"}],"eBaMl":[function() {},{}],"gU3Lk":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1e4d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

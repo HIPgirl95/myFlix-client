@@ -1,8 +1,10 @@
 import React, { useRef, useState } from "react";
+import { getImages, uploadImages } from "../../api";
 
 export const Suggestions = () => {
   const fileInputRef = useRef(null);
   const [images, setImages] = useState([]);
+  const storedToken = localStorage.getItem("token");
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -13,10 +15,7 @@ export const Suggestions = () => {
     formData.append("image", file);
 
     try {
-      const response = await fetch("/images", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await uploadImages(formData, storedToken);
 
       if (response.ok) {
         console.log("Image uploaded!");
@@ -31,7 +30,7 @@ export const Suggestions = () => {
 
   const handleRetrieveImages = async () => {
     try {
-      const response = await fetch("/images");
+      const response = await getImages(storedToken);
       const files = await response.json();
 
       if (!Array.isArray(files)) {

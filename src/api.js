@@ -1,7 +1,10 @@
 const heroku_url = "https://hannah-hogan-movie-api-ea6c47e0093b.herokuapp.com";
-const BASE_API_URL = heroku_url; //"http://52.6.207.97";
+const local_dev_URL = "http://localhost:8080";
+const LoadBalancer_URL =
+  "http://HannahHogan-CF-22-LoadBalancer-527630731.us-east-1.elb.amazonaws.com";
+const Active_URL = local_dev_URL;
 export function createUser(data) {
-  return fetch(`${BASE_API_URL}/users`, {
+  return fetch(`${Active_URL}/users`, {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
@@ -10,14 +13,33 @@ export function createUser(data) {
   });
 }
 
-export function getMovies(storedToken) {
-  return fetch(`${BASE_API_URL}/movies`, {
-    headers: { Authorization: `Bearer ${storedToken}` },
+export const uploadImages = async (formData, token) => {
+  return fetch(`${Active_URL}/images`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: formData,
+  });
+};
+
+export const getImages = async (token) => {
+  return fetch(`${Active_URL}/images`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export function getMovies(token) {
+  return fetch(`${Active_URL}/movies`, {
+    headers: { Authorization: `Bearer ${token}` },
   });
 }
 
 export function login(data) {
-  return fetch(`${BASE_API_URL}/login`, {
+  return fetch(`${Active_URL}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -27,7 +49,7 @@ export function login(data) {
 }
 
 export function deleteUser(token, username) {
-  return fetch(`${BASE_API_URL}/users/${username}`, {
+  return fetch(`${Active_URL}/users/${username}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -36,7 +58,7 @@ export function deleteUser(token, username) {
 }
 
 export function addMovieToFavs(token, username, movieId) {
-  return fetch(`${BASE_API_URL}/users/${username}/movies/${movieId}`, {
+  return fetch(`${Active_URL}/users/${username}/movies/${movieId}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -45,7 +67,7 @@ export function addMovieToFavs(token, username, movieId) {
   });
 }
 export function removeMovieFromFavs(token, username, movieId) {
-  return fetch(`${BASE_API_URL}/users/${username}/movies/${movieId}`, {
+  return fetch(`${Active_URL}/users/${username}/movies/${movieId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -55,7 +77,7 @@ export function removeMovieFromFavs(token, username, movieId) {
 }
 
 export function updateUserInfo(token, username, data) {
-  return fetch(`${BASE_API_URL}/users/${username}`, {
+  return fetch(`${Active_URL}/users/${username}`, {
     method: "PUT",
     body: JSON.stringify(data),
     headers: {

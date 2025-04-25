@@ -34,7 +34,7 @@ export const MainView = () => {
   useEffect(() => {
     if (!token) return;
 
-    getMovies(storedToken)
+    getMovies(token)
       .then((response) => response.json())
       .then((data) => {
         const moviesFromApi = data.map((doc) => {
