@@ -57,11 +57,11 @@ export const Suggestions = () => {
       <button onClick={handleRetrieveImages}>Show Posters</button>
 
       <div id="gallery">
-        {images.map((file, index) => (
+        {images.map((img, index) => (
           <img
-            key={index}
-            src={`https://s3.us-east-1.amazonaws.com/cf-cc-2.5/resized/${file}`} // Use your S3 bucket path here
-            alt={file}
+            key={img.key || index}
+            src={img.url} // Use your S3 bucket path here
+            alt={img.key || `image-${index}`}
             style={{ maxWidth: "200px", margin: "10px" }}
           />
         ))}

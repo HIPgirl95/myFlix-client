@@ -44970,14 +44970,14 @@ const Suggestions = ()=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 id: "gallery",
-                children: images.map((file, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        src: `https://s3.us-east-1.amazonaws.com/cf-cc-2.5/resized/${file}`,
-                        alt: file,
+                children: images.map((img, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                        src: img.url,
+                        alt: img.key || `image-${index}`,
                         style: {
                             maxWidth: "200px",
                             margin: "10px"
                         }
-                    }, index, false, {
+                    }, img.key || index, false, {
                         fileName: "src/components/suggestions/suggestions.jsx",
                         lineNumber: 61,
                         columnNumber: 11
